@@ -13,6 +13,12 @@ namespace Maintenance
         [STAThread]
         static void Main(string[] args)
         {
+            if (Default.LoggingEnabled)
+            {
+                EasyLogger.BackupLogs(EasyLogger.LogFile);
+                EasyLogger.AddListener(EasyLogger.LogFile);
+            }
+
             if (Default.UpgradeRequired)
             {
                 Default.Upgrade();
@@ -67,12 +73,6 @@ namespace Maintenance
 
         private static void StartLightCleanup()
         {
-            if (Default.LoggingEnabled)
-            {
-                EasyLogger.BackupLogs(EasyLogger.LogFile);
-                EasyLogger.AddListener(EasyLogger.LogFile);
-            }
-
             if (Default.TasksToDisable.Count > 0)
             {
                 EasyLogger.Info("*********************  Disable Scheduled Tasks  *********************" + Environment.NewLine);

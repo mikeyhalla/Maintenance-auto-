@@ -949,6 +949,7 @@ namespace Maintenance
             try
             {
                 BeginInvoke(new MethodInvoker(() => Console("Stop Checkup requested...")));
+                BeginInvoke(new MethodInvoker(() => Console(Environment.NewLine + "Please Wait for process to completely stop!" + Environment.NewLine)));
 
                 process.Kill();
                 process.ErrorDataReceived -= Proc_ErrorReceived;
