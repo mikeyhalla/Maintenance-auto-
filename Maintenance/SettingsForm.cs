@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.ServiceProcess;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 using static Maintenance.Input;
 using static Maintenance.Properties.Settings;
@@ -11,6 +15,9 @@ namespace Maintenance
     public partial class SettingsForm : Form
     {
         #region Entry Point and Settings
+
+        Process process;
+        bool StopRequested;
 
         public SettingsForm()
         {
@@ -71,12 +78,6 @@ namespace Maintenance
                 ExclusionListBox.Items.Add(item);
             }
 
-            DISMDays.Text = Default.DaysDism.ToString();
-
-            SFCDays.Text = Default.DaysSFC.ToString();
-
-            DiskCheckDays.Text = Default.DaysDiskCheck.ToString();
-
             LoggingBox.Checked = Default.LoggingEnabled;
 
             Subscribe();
@@ -102,50 +103,6 @@ namespace Maintenance
             TasksTextBox.KeyDown += TasksTextBox_KeyDown;
             ExclusionListBox.KeyDown += ExclusionListBox_KeyDown;
             ExclusionListTextBox.KeyDown += ExclusionListTextBox_KeyDown;
-
-            DISMDays.TextChanged += DISMDays_TextChanged;
-            SFCDays.TextChanged += SFCDays_TextChanged;
-            DiskCheckDays.TextChanged += DiskCheckDays_TextChanged;
-
-            DISMForceRun.CheckedChanged += DISMForceRun_CheckedChanged;
-            SFCForceRun.CheckedChanged += SFCForceRun_CheckedChanged;
-            DiskCheckForceRun.CheckedChanged += DiskCheckForceRun_CheckedChanged;
-        }
-
-        private void DISMForceRun_CheckedChanged(object sender, EventArgs e)
-        {
-            Default.DISMLastRun = Default.DISMLastRun.AddMonths(-6);
-            Default.Save();
-        }
-
-        private void SFCForceRun_CheckedChanged(object sender, EventArgs e)
-        {
-            Default.SFCLastRun = Default.SFCLastRun.AddMonths(-6);
-            Default.Save();
-        }
-
-        private void DiskCheckForceRun_CheckedChanged(object sender, EventArgs e)
-        {
-            Default.DiskCheckLastRun = Default.DiskCheckLastRun.AddMonths(-6);
-            Default.Save();
-        }
-
-        private void DISMDays_TextChanged(object sender, EventArgs e)
-        {
-            Default.DaysDism = Convert.ToInt32(DISMDays.Text);
-            Default.Save();
-        }
-
-        private void SFCDays_TextChanged(object sender, EventArgs e)
-        {
-            Default.DaysSFC = Convert.ToInt32(SFCDays.Text);
-            Default.Save();
-        }
-
-        private void DiskCheckDays_TextChanged(object sender, EventArgs e)
-        {
-            Default.DaysDiskCheck = Convert.ToInt32(DiskCheckDays.Text);
-            Default.Save();
         }
 
         private void FilesToDelBox_KeyDown(object sender, KeyEventArgs e)
@@ -617,7 +574,8 @@ namespace Maintenance
                 }
                 catch (Exception ex)
                 {
-                    EasyLogger.Error(selected + " : " + ex);
+                    EasyLogger.Error(selected + " : " + ex + Environment.NewLine);
+                    BeginInvoke(new MethodInvoker(() => Console(selected + " : " + ex.Message)));
                 }
 
                 ServicesTextBox.Text = string.Empty;
@@ -657,7 +615,8 @@ namespace Maintenance
                 }
                 catch (Exception ex)
                 {
-                    EasyLogger.Error(selected + " : " + ex);
+                    EasyLogger.Error(selected + " : " + ex + Environment.NewLine);
+                    BeginInvoke(new MethodInvoker(() => Console(selected + " : " + ex.Message)));
                 }
 
                 ServicesTextBox.Text = string.Empty;
@@ -822,7 +781,8 @@ namespace Maintenance
                         }
                         catch (Exception ex)
                         {
-                            EasyLogger.Error(selected + " : " + ex);
+                            EasyLogger.Error(selected + " : " + ex + Environment.NewLine);
+                            BeginInvoke(new MethodInvoker(() => Console(selected + " : " + ex.Message)));
                         }
                     }
                 }
@@ -862,5 +822,242 @@ namespace Maintenance
         }
 
         #endregion File and Folder Add Text (Key:Enter)
+
+        #region Full System Checkup
+
+        private void DiskCheck_Click(object sender, EventArgs e)
+        {
+            StopRequested = false;
+            StopCheckup.Enabled = true;
+            FullCheckup.Enabled = false;
+            DiskCheck.Enabled = false;
+
+            Thread th = new Thread(StartDiskCheck)
+            {
+                IsBackground = true
+            };
+            th.Start();
+        }
+
+        private void StartDiskCheck()
+        {
+            EasyLogger.Info("Running disk check(s)...");
+            BeginInvoke(new MethodInvoker(() => Console("Running disk check(s)...")));
+
+            string[] SysDrives = Directory.GetLogicalDrives().Where(d => Directory.Exists(d)).ToArray();
+
+            foreach (string drive in SysDrives)
+            {
+                if (StopRequested)
+                {
+                    break;
+                }
+                RunCommand("cmd.exe", "/C echo y|ChkDsk.exe " + string.Concat(drive.Replace("\\", ""), " /x /f"), "Check Disk");
+            }
+
+            DiskCheck.Enabled = true;
+            FullCheckup.Enabled = true;
+        }
+
+        private void FullCheckup_Click(object sender, EventArgs e)
+        {
+            StopCheckup.Enabled = true;
+            DiskCheck.Enabled = false;
+            FullCheckup.Enabled = false;
+
+            Thread th = new Thread(StartCheckup)
+            {
+                IsBackground = true
+            };
+            th.Start();
+        }
+
+        private void StartCheckup()
+        {
+            StopRequested = false;
+            EasyLogger.Info("*******************************  Flush DNS  *******************************" + Environment.NewLine);
+            BeginInvoke(new MethodInvoker(() => Console("*******************************  Flush DNS  *******************************")));
+            RunCommand("ipconfig.exe", "/flushdns", "Flush DNS");
+            if (StopRequested)
+            {
+                FullCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+                return;
+            }
+
+            RunCommand("ipconfig.exe", "/registerdns", "Register DNS");
+            if (StopRequested)
+            {
+                FullCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+                return;
+            }
+
+            EasyLogger.Info("*******************************  Sync Time  *******************************" + Environment.NewLine);
+            BeginInvoke(new MethodInvoker(() => Console("*******************************  Sync Time  *******************************")));
+
+            RunCommand("net.exe", "start w32time", "w32time");
+            if (StopRequested)
+            {
+                FullCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+                return;
+            }
+            RunCommand("w32tm.exe", "/resync /force", "w32time");
+            if (StopRequested)
+            {
+                FullCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+                return;
+            }
+
+            EasyLogger.Info("*******************************  DISM Checkup  *******************************" + Environment.NewLine);
+            BeginInvoke(new MethodInvoker(() => Console("*******************************  DISM Checkup  *******************************")));
+
+            RunCommand("DISM.exe", "/online /Cleanup-Image /StartComponentCleanup /ResetBase /RestoreHealth", "DISM");
+            if (StopRequested)
+            {
+                FullCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+                return;
+            }
+            RunCommand("DISM.exe", "/online /Cleanup-Image /StartComponentCleanup", "DISM");
+            if (StopRequested)
+            {
+                FullCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+                return;
+            }
+
+            EasyLogger.Info("*******************************  System File Checker  *******************************" + Environment.NewLine);
+            BeginInvoke(new MethodInvoker(() => Console("*******************************  System File Checker  *******************************")));
+            RunCommand("sfc.exe", "/scannow", "SFC");
+            if (StopRequested)
+            {
+                FullCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+                return;
+            }
+        }
+
+        private void StopCheckup_Click(object sender, EventArgs e)
+        {
+            StopRequested = true;
+            StopCheckup.Enabled = false;
+            int errors = 0;
+
+            try
+            {
+                BeginInvoke(new MethodInvoker(() => Console("Stop Checkup requested...")));
+
+                process.Kill();
+                process.ErrorDataReceived -= Proc_ErrorReceived;
+                process.OutputDataReceived -= Proc_DataReceived;
+            }
+            catch
+            {
+                errors++;
+            }
+
+            if (errors == 0)
+            {
+                BeginInvoke(new MethodInvoker(() => Console("Checkup has successfully stopped...")));
+            }
+        }
+
+        private void RunCommand(string filename, string args, string PName)
+        {
+            try
+            {
+                process = new Process();
+
+                process.StartInfo.CreateNoWindow = true;
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                process.StartInfo.FileName = filename;
+                process.StartInfo.Arguments = args;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardInput = true;
+                process.StartInfo.RedirectStandardError = true;
+
+                process.EnableRaisingEvents = true;
+                process.ErrorDataReceived += Proc_ErrorReceived;
+                process.OutputDataReceived += Proc_DataReceived;
+
+                process.Start();
+
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
+
+                process.WaitForExit();
+
+                int ECode = process.ExitCode;
+
+                BeginInvoke(new MethodInvoker(() => Console(PName + " completed with exit code: " + ECode)));
+
+                process.Dispose();
+            }
+            catch
+            {
+            }
+        }
+
+        private void Console(string output)
+        {
+            ConsoleOut.Text += output + Environment.NewLine;
+            ConsoleOut.SelectionStart = ConsoleOut.TextLength;
+            ConsoleOut.ScrollToCaret();
+        }
+
+        private void ClearConsole_Click(object sender, EventArgs e)
+        {
+            ConsoleOut.Clear();
+        }
+
+        private void Proc_DataReceived(object sender, DataReceivedEventArgs e)
+        {
+            try
+            {
+                if (e.Data != null)
+                {
+                    if (!e.Data.Contains("[=") && !e.Data.Contains("%") && e.Data != string.Empty)
+                    {
+                        string Output = Regex.Replace(e.Data, "\x00", "");
+                        if (Output != string.Empty)
+                        {
+                            EasyLogger.Info(Output);
+                            BeginInvoke(new MethodInvoker(() => Console(Output)));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                EasyLogger.Error(ex + Environment.NewLine);
+                BeginInvoke(new MethodInvoker(() => Console(ex.Message)));
+            }
+        }
+
+        private void Proc_ErrorReceived(object sender, DataReceivedEventArgs e)
+        {
+            try
+            {
+                if (e.Data != null)
+                {
+                    if (e.Data != string.Empty)
+                    {
+                        string Output = Regex.Replace(e.Data, "\x00", "");
+                        EasyLogger.Info(Output);
+                        BeginInvoke(new MethodInvoker(() => Console(Output)));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                EasyLogger.Error(ex + Environment.NewLine);
+                BeginInvoke(new MethodInvoker(() => Console(ex.Message)));
+            }
+        }
+        #endregion Full System Checkup
     }
 }

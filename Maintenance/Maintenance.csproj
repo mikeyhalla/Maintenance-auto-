@@ -18,10 +18,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <DebugSymbols>false</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
     <OutputPath>..\Release\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>none</DebugType>
+    <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
@@ -48,8 +48,8 @@
     <ApplicationIcon>ICON.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyLogger, Version=2.0.0.2020, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xCONFLiCTiONx.Logger.1.4.0\lib\net40-client\EasyLogger.dll</HintPath>
+    <Reference Include="EasyLogger, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\xCONFLiCTiONx.Logger.1.6.0\lib\net40-client\EasyLogger.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -74,7 +74,6 @@
     <Compile Include="InputBox.cs" />
     <Compile Include="SetServices.cs" />
     <Compile Include="DisableTasks.cs" />
-    <Compile Include="FullCheckup.cs" />
     <Compile Include="HideFiles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

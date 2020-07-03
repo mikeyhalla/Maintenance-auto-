@@ -51,23 +51,5 @@
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
     </Setting>
-    <Setting Name="DISMLastRun" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2019-01-01</Value>
-    </Setting>
-    <Setting Name="SFCLastRun" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2019-01-01</Value>
-    </Setting>
-    <Setting Name="DaysDism" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">28</Value>
-    </Setting>
-    <Setting Name="DaysSFC" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">14</Value>
-    </Setting>
-    <Setting Name="DaysDiskCheck" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">28</Value>
-    </Setting>
-    <Setting Name="DiskCheckLastRun" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2019-01-01</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

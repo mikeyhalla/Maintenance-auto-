@@ -30,16 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ConsoleOut = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.DiskCheckLabel = new System.Windows.Forms.Label();
-            this.DiskCheckDays = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.SFCLabel = new System.Windows.Forms.Label();
-            this.SFCDays = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.DISMLabel = new System.Windows.Forms.Label();
-            this.DISMDays = new System.Windows.Forms.ComboBox();
+            this.StopCheckup = new System.Windows.Forms.Button();
+            this.DiskCheck = new System.Windows.Forms.Button();
+            this.FullCheckup = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ExclusionListTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -48,6 +43,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.ExclusionListBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ClearConsole = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.LoggingBox = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -94,9 +90,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FilesHideBox = new System.Windows.Forms.ComboBox();
             this.FilesToDelBox = new System.Windows.Forms.ComboBox();
-            this.DISMForceRun = new System.Windows.Forms.CheckBox();
-            this.SFCForceRun = new System.Windows.Forms.CheckBox();
-            this.DiskCheckForceRun = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -110,6 +103,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Controls.Add(this.ConsoleOut);
             this.panel1.Controls.Add(this.groupBox6);
             this.panel1.Controls.Add(this.groupBox5);
             this.panel1.Controls.Add(this.panel2);
@@ -119,204 +113,72 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 692);
+            this.panel1.Size = new System.Drawing.Size(597, 765);
             this.panel1.TabIndex = 20;
+            // 
+            // ConsoleOut
+            // 
+            this.ConsoleOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(84)))));
+            this.ConsoleOut.ForeColor = System.Drawing.Color.White;
+            this.ConsoleOut.Location = new System.Drawing.Point(0, 613);
+            this.ConsoleOut.Multiline = true;
+            this.ConsoleOut.Name = "ConsoleOut";
+            this.ConsoleOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ConsoleOut.Size = new System.Drawing.Size(597, 115);
+            this.ConsoleOut.TabIndex = 57;
             // 
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox6.Controls.Add(this.DiskCheckForceRun);
-            this.groupBox6.Controls.Add(this.SFCForceRun);
-            this.groupBox6.Controls.Add(this.DISMForceRun);
-            this.groupBox6.Controls.Add(this.label18);
-            this.groupBox6.Controls.Add(this.DiskCheckLabel);
-            this.groupBox6.Controls.Add(this.DiskCheckDays);
-            this.groupBox6.Controls.Add(this.label16);
-            this.groupBox6.Controls.Add(this.SFCLabel);
-            this.groupBox6.Controls.Add(this.SFCDays);
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.DISMLabel);
-            this.groupBox6.Controls.Add(this.DISMDays);
+            this.groupBox6.Controls.Add(this.StopCheckup);
+            this.groupBox6.Controls.Add(this.DiskCheck);
+            this.groupBox6.Controls.Add(this.FullCheckup);
             this.groupBox6.Location = new System.Drawing.Point(1, 567);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(594, 90);
+            this.groupBox6.Size = new System.Drawing.Size(594, 48);
             this.groupBox6.TabIndex = 56;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Days in between to run (0 = Disabled)";
+            this.groupBox6.Text = "Check-up";
             // 
-            // label18
+            // StopCheckup
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(551, 33);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(31, 13);
-            this.label18.TabIndex = 56;
-            this.label18.Text = "Days";
+            this.StopCheckup.BackColor = System.Drawing.SystemColors.Control;
+            this.StopCheckup.Enabled = false;
+            this.StopCheckup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.StopCheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StopCheckup.Location = new System.Drawing.Point(398, 17);
+            this.StopCheckup.Name = "StopCheckup";
+            this.StopCheckup.Size = new System.Drawing.Size(190, 23);
+            this.StopCheckup.TabIndex = 62;
+            this.StopCheckup.Text = "Stop Checkup";
+            this.StopCheckup.UseVisualStyleBackColor = false;
+            this.StopCheckup.Click += new System.EventHandler(this.StopCheckup_Click);
             // 
-            // DiskCheckLabel
+            // DiskCheck
             // 
-            this.DiskCheckLabel.AutoSize = true;
-            this.DiskCheckLabel.Location = new System.Drawing.Point(412, 33);
-            this.DiskCheckLabel.Name = "DiskCheckLabel";
-            this.DiskCheckLabel.Size = new System.Drawing.Size(62, 13);
-            this.DiskCheckLabel.TabIndex = 55;
-            this.DiskCheckLabel.Text = "DiskCheck:";
+            this.DiskCheck.BackColor = System.Drawing.SystemColors.Control;
+            this.DiskCheck.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.DiskCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DiskCheck.Location = new System.Drawing.Point(202, 17);
+            this.DiskCheck.Name = "DiskCheck";
+            this.DiskCheck.Size = new System.Drawing.Size(190, 23);
+            this.DiskCheck.TabIndex = 61;
+            this.DiskCheck.Text = "Disk Check (all disks)";
+            this.DiskCheck.UseVisualStyleBackColor = false;
+            this.DiskCheck.Click += new System.EventHandler(this.DiskCheck_Click);
             // 
-            // DiskCheckDays
+            // FullCheckup
             // 
-            this.DiskCheckDays.FormattingEnabled = true;
-            this.DiskCheckDays.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "0"});
-            this.DiskCheckDays.Location = new System.Drawing.Point(477, 30);
-            this.DiskCheckDays.Name = "DiskCheckDays";
-            this.DiskCheckDays.Size = new System.Drawing.Size(68, 21);
-            this.DiskCheckDays.TabIndex = 54;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(322, 33);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(31, 13);
-            this.label16.TabIndex = 53;
-            this.label16.Text = "Days";
-            // 
-            // SFCLabel
-            // 
-            this.SFCLabel.AutoSize = true;
-            this.SFCLabel.Location = new System.Drawing.Point(215, 33);
-            this.SFCLabel.Name = "SFCLabel";
-            this.SFCLabel.Size = new System.Drawing.Size(30, 13);
-            this.SFCLabel.TabIndex = 52;
-            this.SFCLabel.Text = "SFC:";
-            // 
-            // SFCDays
-            // 
-            this.SFCDays.FormattingEnabled = true;
-            this.SFCDays.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "0"});
-            this.SFCDays.Location = new System.Drawing.Point(248, 30);
-            this.SFCDays.Name = "SFCDays";
-            this.SFCDays.Size = new System.Drawing.Size(68, 21);
-            this.SFCDays.TabIndex = 51;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(129, 33);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 13);
-            this.label14.TabIndex = 50;
-            this.label14.Text = "Days";
-            // 
-            // DISMLabel
-            // 
-            this.DISMLabel.AutoSize = true;
-            this.DISMLabel.Location = new System.Drawing.Point(15, 33);
-            this.DISMLabel.Name = "DISMLabel";
-            this.DISMLabel.Size = new System.Drawing.Size(37, 13);
-            this.DISMLabel.TabIndex = 49;
-            this.DISMLabel.Text = "DISM:";
-            // 
-            // DISMDays
-            // 
-            this.DISMDays.FormattingEnabled = true;
-            this.DISMDays.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "0"});
-            this.DISMDays.Location = new System.Drawing.Point(55, 30);
-            this.DISMDays.Name = "DISMDays";
-            this.DISMDays.Size = new System.Drawing.Size(68, 21);
-            this.DISMDays.TabIndex = 48;
+            this.FullCheckup.BackColor = System.Drawing.SystemColors.Control;
+            this.FullCheckup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.FullCheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FullCheckup.Location = new System.Drawing.Point(6, 17);
+            this.FullCheckup.Name = "FullCheckup";
+            this.FullCheckup.Size = new System.Drawing.Size(190, 23);
+            this.FullCheckup.TabIndex = 54;
+            this.FullCheckup.Text = "Full System Checkup";
+            this.FullCheckup.UseVisualStyleBackColor = false;
+            this.FullCheckup.Click += new System.EventHandler(this.FullCheckup_Click);
             // 
             // groupBox5
             // 
@@ -396,20 +258,34 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.ClearConsole);
             this.panel2.Controls.Add(this.helpButton);
             this.panel2.Controls.Add(this.LoggingBox);
-            this.panel2.Location = new System.Drawing.Point(0, 657);
+            this.panel2.Location = new System.Drawing.Point(0, 728);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(596, 35);
+            this.panel2.Size = new System.Drawing.Size(596, 33);
             this.panel2.TabIndex = 54;
             // 
-            // HelpButton
+            // ClearConsole
+            // 
+            this.ClearConsole.BackColor = System.Drawing.SystemColors.Control;
+            this.ClearConsole.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.ClearConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearConsole.Location = new System.Drawing.Point(78, 5);
+            this.ClearConsole.Name = "ClearConsole";
+            this.ClearConsole.Size = new System.Drawing.Size(158, 23);
+            this.ClearConsole.TabIndex = 23;
+            this.ClearConsole.Text = "Clear Console";
+            this.ClearConsole.UseVisualStyleBackColor = false;
+            this.ClearConsole.Click += new System.EventHandler(this.ClearConsole_Click);
+            // 
+            // helpButton
             // 
             this.helpButton.BackColor = System.Drawing.SystemColors.Control;
             this.helpButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.Location = new System.Drawing.Point(18, 6);
-            this.helpButton.Name = "HelpButton";
+            this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(48, 23);
             this.helpButton.TabIndex = 22;
             this.helpButton.Text = "?";
@@ -925,42 +801,12 @@
             this.FilesToDelBox.Size = new System.Drawing.Size(246, 21);
             this.FilesToDelBox.TabIndex = 39;
             // 
-            // DISMForceRun
-            // 
-            this.DISMForceRun.AutoSize = true;
-            this.DISMForceRun.Location = new System.Drawing.Point(18, 59);
-            this.DISMForceRun.Name = "DISMForceRun";
-            this.DISMForceRun.Size = new System.Drawing.Size(102, 17);
-            this.DISMForceRun.TabIndex = 57;
-            this.DISMForceRun.Text = "Run on next run";
-            this.DISMForceRun.UseVisualStyleBackColor = true;
-            // 
-            // SFCForceRun
-            // 
-            this.SFCForceRun.AutoSize = true;
-            this.SFCForceRun.Location = new System.Drawing.Point(218, 59);
-            this.SFCForceRun.Name = "SFCForceRun";
-            this.SFCForceRun.Size = new System.Drawing.Size(102, 17);
-            this.SFCForceRun.TabIndex = 58;
-            this.SFCForceRun.Text = "Run on next run";
-            this.SFCForceRun.UseVisualStyleBackColor = true;
-            // 
-            // DiskCheckForceRun
-            // 
-            this.DiskCheckForceRun.AutoSize = true;
-            this.DiskCheckForceRun.Location = new System.Drawing.Point(415, 59);
-            this.DiskCheckForceRun.Name = "DiskCheckForceRun";
-            this.DiskCheckForceRun.Size = new System.Drawing.Size(102, 17);
-            this.DiskCheckForceRun.TabIndex = 59;
-            this.DiskCheckForceRun.Text = "Run on next run";
-            this.DiskCheckForceRun.UseVisualStyleBackColor = true;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(596, 694);
+            this.ClientSize = new System.Drawing.Size(596, 761);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -970,8 +816,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Maintenance Settings";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1045,17 +891,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox PathHideListBox;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label DiskCheckLabel;
-        private System.Windows.Forms.ComboBox DiskCheckDays;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label SFCLabel;
-        private System.Windows.Forms.ComboBox SFCDays;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label DISMLabel;
-        private System.Windows.Forms.ComboBox DISMDays;
-        private System.Windows.Forms.CheckBox DiskCheckForceRun;
-        private System.Windows.Forms.CheckBox SFCForceRun;
-        private System.Windows.Forms.CheckBox DISMForceRun;
+        private System.Windows.Forms.Button FullCheckup;
+        private System.Windows.Forms.Button DiskCheck;
+        private System.Windows.Forms.Button StopCheckup;
+        private System.Windows.Forms.TextBox ConsoleOut;
+        private System.Windows.Forms.Button ClearConsole;
     }
 }

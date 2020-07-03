@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using static Maintenance.Properties.Settings;
 
 namespace Maintenance
@@ -32,6 +31,7 @@ namespace Maintenance
 
                 Environment.Exit(0);
             }
+
             if (args.Length > 0)
             {
                 try
@@ -42,49 +42,9 @@ namespace Maintenance
                     {
                         StartLightCleanup();
                     }
-                    else if (A0 == "/help" || A0 == "/?" || A0 == "-help" || A0 == "-?")
-                    {
-                        Console.WriteLine("/FULLCHECKUP as a scheduled task when you are not using the computer for a long while.");
-
-                        EasyLogger.Info("/FULLCHECKUP as a scheduled task when you are not using the computer for a long while." + Environment.NewLine);
-                    }
                     else
                     {
                         StartLightCleanup();
-
-                        // Get conditions for Full Checkup
-                        if (args.Length > 1)
-                        {
-                            string A1 = args[1].ToLower();
-
-                            if (A1 == "/puranfd" || A1 == "-puranfd")
-                            {
-                                StringBuilder sb = new StringBuilder();
-
-                                foreach (string arg in args)
-                                {
-                                    if (arg != args[0] && arg != args[1])
-                                    {
-                                        if (sb.ToString() == string.Empty)
-                                        {
-                                            sb.Append(arg);
-                                        }
-                                        else
-                                        {
-                                            sb.Append(" " + arg);
-                                        }
-                                    }
-                                }
-                                PuranDefragArgs = sb.ToString();
-                            }
-                        }
-
-                        if (A0 == "/fullcheckup" || A0 == "-fullcheckup")
-                        {
-                            EasyLogger.Info("*********************  Full Checkup *********************" + Environment.NewLine);
-
-                            FullCheckup.StartCheckup(PuranDefragArgs);
-                        }
                     }
                 }
                 catch (Exception ex)
@@ -109,8 +69,8 @@ namespace Maintenance
         {
             if (Default.LoggingEnabled)
             {
-                EasyLogger.BackupLogs(EasyLogger.LogDirectory);
-                EasyLogger.AddListener(EasyLogger.LogDirectory);
+                EasyLogger.BackupLogs(EasyLogger.LogFile);
+                EasyLogger.AddListener(EasyLogger.LogFile);
             }
 
             if (Default.TasksToDisable.Count > 0)
