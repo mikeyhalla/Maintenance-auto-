@@ -827,20 +827,40 @@ namespace Maintenance
 
         private void DiskCheck_Click(object sender, EventArgs e)
         {
-            StopRequested = false;
-            StopCheckup.Enabled = true;
-            FullCheckup.Enabled = false;
-            DiskCheck.Enabled = false;
-
-            Thread th = new Thread(StartDiskCheck)
+            Thread th = new Thread(() => StartDiskCheck(false))
             {
                 IsBackground = true
             };
             th.Start();
         }
 
-        private void StartDiskCheck()
+        private void FullSystemCheckup_Click(object sender, EventArgs e)
         {
+            Thread th = new Thread(() => StartDiskCheck(true))
+            {
+                IsBackground = true
+            };
+            th.Start();
+        }
+
+        private void FullCheckup_Click(object sender, EventArgs e)
+        {
+            Thread th = new Thread(StartCheckup)
+            {
+                IsBackground = true
+            };
+            th.Start();
+        }
+
+        private void StartDiskCheck(bool DoFullCheckup)
+        {
+            StopRequested = false;
+            StopCheckupButton.Enabled = true;
+            FullSystemCheckup.Enabled = true;
+            FullCheckup.Enabled = false;
+            FullSystemCheckup.Enabled = false;
+            DiskCheck.Enabled = false;
+
             EasyLogger.Info("Running disk check(s)...");
             BeginInvoke(new MethodInvoker(() => Console("Running disk check(s)...")));
 
@@ -853,34 +873,72 @@ namespace Maintenance
                     break;
                 }
                 RunCommand("cmd.exe", "/C echo y|ChkDsk.exe " + string.Concat(drive.Replace("\\", ""), " /x /f"), "Check Disk");
+
+                if (StopRequested)
+                {
+                    StopCheckupButton.Enabled = false;
+                    FullSystemCheckup.Enabled = false;
+                    FullCheckup.Enabled = true;
+                    FullSystemCheckup.Enabled = true;
+                    DiskCheck.Enabled = true;
+                    return;
+                }
             }
 
-            DiskCheck.Enabled = true;
-            FullCheckup.Enabled = true;
-        }
-
-        private void FullCheckup_Click(object sender, EventArgs e)
-        {
-            StopCheckup.Enabled = true;
-            DiskCheck.Enabled = false;
-            FullCheckup.Enabled = false;
-
-            Thread th = new Thread(StartCheckup)
+            if (StopRequested)
             {
-                IsBackground = true
-            };
-            th.Start();
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
+                FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+                return;
+            }
+
+            if (!DoFullCheckup)
+            {
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
+                FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
+                DiskCheck.Enabled = true;
+
+                if (RebootBox.Checked)
+                {
+                    using (Process p = new Process())
+                    {
+                        p.StartInfo.FileName = "shutdown";
+                        p.StartInfo.Arguments = "-r -t 30";
+                        p.Start();
+                    }
+                    Environment.Exit(0);
+                }
+            }
+            else
+            {
+                StartCheckup();
+            }
         }
 
         private void StartCheckup()
         {
+            StopRequested = false;
+            StopCheckupButton.Enabled = true;
+            FullSystemCheckup.Enabled = true;
+            FullCheckup.Enabled = false;
+            FullSystemCheckup.Enabled = false;
+            DiskCheck.Enabled = false;
+
             StopRequested = false;
             EasyLogger.Info("*******************************  Flush DNS  *******************************" + Environment.NewLine);
             BeginInvoke(new MethodInvoker(() => Console("*******************************  Flush DNS  *******************************")));
             RunCommand("ipconfig.exe", "/flushdns", "Flush DNS");
             if (StopRequested)
             {
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
                 FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
             }
@@ -888,7 +946,10 @@ namespace Maintenance
             RunCommand("ipconfig.exe", "/registerdns", "Register DNS");
             if (StopRequested)
             {
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
                 FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
             }
@@ -899,14 +960,20 @@ namespace Maintenance
             RunCommand("net.exe", "start w32time", "w32time");
             if (StopRequested)
             {
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
                 FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
             }
             RunCommand("w32tm.exe", "/resync /force", "w32time");
             if (StopRequested)
             {
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
                 FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
             }
@@ -917,14 +984,20 @@ namespace Maintenance
             RunCommand("DISM.exe", "/online /Cleanup-Image /StartComponentCleanup /ResetBase /RestoreHealth", "DISM");
             if (StopRequested)
             {
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
                 FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
             }
             RunCommand("DISM.exe", "/online /Cleanup-Image /StartComponentCleanup", "DISM");
             if (StopRequested)
             {
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
                 FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
             }
@@ -934,16 +1007,36 @@ namespace Maintenance
             RunCommand("sfc.exe", "/scannow", "SFC");
             if (StopRequested)
             {
+                StopCheckupButton.Enabled = false;
+                FullSystemCheckup.Enabled = false;
                 FullCheckup.Enabled = true;
+                FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
             }
+
+            StopCheckupButton.Enabled = false;
+            FullSystemCheckup.Enabled = false;
+            FullCheckup.Enabled = true;
+            FullSystemCheckup.Enabled = true;
+            DiskCheck.Enabled = true;
+
+            if (RebootBox.Checked)
+            {
+                using (Process p = new Process())
+                {
+                    p.StartInfo.FileName = "shutdown";
+                    p.StartInfo.Arguments = "-r -t 30";
+                    p.Start();
+                }
+                Environment.Exit(0);
+            }
         }
 
-        private void StopCheckup_Click(object sender, EventArgs e)
+        private void StopCheckupButton_Click(object sender, EventArgs e)
         {
             StopRequested = true;
-            StopCheckup.Enabled = false;
+            FullSystemCheckup.Enabled = false;
             int errors = 0;
 
             try

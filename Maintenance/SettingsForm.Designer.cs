@@ -32,7 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ConsoleOut = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.StopCheckup = new System.Windows.Forms.Button();
+            this.StopCheckupButton = new System.Windows.Forms.Button();
+            this.FullSystemCheckup = new System.Windows.Forms.Button();
             this.DiskCheck = new System.Windows.Forms.Button();
             this.FullCheckup = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -43,6 +44,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.ExclusionListBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.RebootBox = new System.Windows.Forms.CheckBox();
             this.ClearConsole = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
             this.LoggingBox = new System.Windows.Forms.CheckBox();
@@ -130,7 +132,8 @@
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox6.Controls.Add(this.StopCheckup);
+            this.groupBox6.Controls.Add(this.StopCheckupButton);
+            this.groupBox6.Controls.Add(this.FullSystemCheckup);
             this.groupBox6.Controls.Add(this.DiskCheck);
             this.groupBox6.Controls.Add(this.FullCheckup);
             this.groupBox6.Location = new System.Drawing.Point(1, 567);
@@ -140,28 +143,41 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Check-up";
             // 
-            // StopCheckup
+            // StopCheckupButton
             // 
-            this.StopCheckup.BackColor = System.Drawing.SystemColors.Control;
-            this.StopCheckup.Enabled = false;
-            this.StopCheckup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.StopCheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StopCheckup.Location = new System.Drawing.Point(398, 17);
-            this.StopCheckup.Name = "StopCheckup";
-            this.StopCheckup.Size = new System.Drawing.Size(190, 23);
-            this.StopCheckup.TabIndex = 62;
-            this.StopCheckup.Text = "Stop Checkup";
-            this.StopCheckup.UseVisualStyleBackColor = false;
-            this.StopCheckup.Click += new System.EventHandler(this.StopCheckup_Click);
+            this.StopCheckupButton.BackColor = System.Drawing.SystemColors.Control;
+            this.StopCheckupButton.Enabled = false;
+            this.StopCheckupButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.StopCheckupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StopCheckupButton.Location = new System.Drawing.Point(441, 17);
+            this.StopCheckupButton.Name = "StopCheckupButton";
+            this.StopCheckupButton.Size = new System.Drawing.Size(135, 23);
+            this.StopCheckupButton.TabIndex = 63;
+            this.StopCheckupButton.Text = "Stop Checkup";
+            this.StopCheckupButton.UseVisualStyleBackColor = false;
+            this.StopCheckupButton.Click += new System.EventHandler(this.StopCheckupButton_Click);
+            // 
+            // FullSystemCheckup
+            // 
+            this.FullSystemCheckup.BackColor = System.Drawing.SystemColors.Control;
+            this.FullSystemCheckup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.FullSystemCheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FullSystemCheckup.Location = new System.Drawing.Point(18, 17);
+            this.FullSystemCheckup.Name = "FullSystemCheckup";
+            this.FullSystemCheckup.Size = new System.Drawing.Size(135, 23);
+            this.FullSystemCheckup.TabIndex = 62;
+            this.FullSystemCheckup.Text = "Full System Checkup";
+            this.FullSystemCheckup.UseVisualStyleBackColor = false;
+            this.FullSystemCheckup.Click += new System.EventHandler(this.FullSystemCheckup_Click);
             // 
             // DiskCheck
             // 
             this.DiskCheck.BackColor = System.Drawing.SystemColors.Control;
             this.DiskCheck.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.DiskCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DiskCheck.Location = new System.Drawing.Point(202, 17);
+            this.DiskCheck.Location = new System.Drawing.Point(159, 17);
             this.DiskCheck.Name = "DiskCheck";
-            this.DiskCheck.Size = new System.Drawing.Size(190, 23);
+            this.DiskCheck.Size = new System.Drawing.Size(135, 23);
             this.DiskCheck.TabIndex = 61;
             this.DiskCheck.Text = "Disk Check (all disks)";
             this.DiskCheck.UseVisualStyleBackColor = false;
@@ -172,11 +188,11 @@
             this.FullCheckup.BackColor = System.Drawing.SystemColors.Control;
             this.FullCheckup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.FullCheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FullCheckup.Location = new System.Drawing.Point(6, 17);
+            this.FullCheckup.Location = new System.Drawing.Point(300, 17);
             this.FullCheckup.Name = "FullCheckup";
-            this.FullCheckup.Size = new System.Drawing.Size(190, 23);
+            this.FullCheckup.Size = new System.Drawing.Size(135, 23);
             this.FullCheckup.TabIndex = 54;
-            this.FullCheckup.Text = "Full System Checkup";
+            this.FullCheckup.Text = "System Checkup";
             this.FullCheckup.UseVisualStyleBackColor = false;
             this.FullCheckup.Click += new System.EventHandler(this.FullCheckup_Click);
             // 
@@ -258,6 +274,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.RebootBox);
             this.panel2.Controls.Add(this.ClearConsole);
             this.panel2.Controls.Add(this.helpButton);
             this.panel2.Controls.Add(this.LoggingBox);
@@ -265,6 +282,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(596, 33);
             this.panel2.TabIndex = 54;
+            // 
+            // RebootBox
+            // 
+            this.RebootBox.AutoSize = true;
+            this.RebootBox.Location = new System.Drawing.Point(342, 9);
+            this.RebootBox.Name = "RebootBox";
+            this.RebootBox.Size = new System.Drawing.Size(130, 17);
+            this.RebootBox.TabIndex = 24;
+            this.RebootBox.Text = "Reboot after checkup";
+            this.RebootBox.UseVisualStyleBackColor = true;
             // 
             // ClearConsole
             // 
@@ -893,8 +920,10 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button FullCheckup;
         private System.Windows.Forms.Button DiskCheck;
-        private System.Windows.Forms.Button StopCheckup;
+        private System.Windows.Forms.Button FullSystemCheckup;
         private System.Windows.Forms.TextBox ConsoleOut;
         private System.Windows.Forms.Button ClearConsole;
+        private System.Windows.Forms.Button StopCheckupButton;
+        private System.Windows.Forms.CheckBox RebootBox;
     }
 }
