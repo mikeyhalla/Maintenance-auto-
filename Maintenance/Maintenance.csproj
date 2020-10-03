@@ -48,8 +48,8 @@
     <ApplicationIcon>ICON.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyLogger, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xCONFLiCTiONx.Logger.1.6.0\lib\net40-client\EasyLogger.dll</HintPath>
+    <Reference Include="EasyLogger, Version=2.2.0.0, Culture=neutral, PublicKeyToken=157f051b2ef23119, processorArchitecture=MSIL">
+      <HintPath>..\packages\xCONFLiCTiONx.Logger.1.7.1\lib\net40-client\EasyLogger.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
