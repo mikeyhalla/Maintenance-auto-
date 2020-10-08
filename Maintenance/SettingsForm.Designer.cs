@@ -120,8 +120,8 @@
             // 
             // ConsoleOut
             // 
-            this.ConsoleOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(84)))));
-            this.ConsoleOut.ForeColor = System.Drawing.Color.White;
+            this.ConsoleOut.BackColor = System.Drawing.Color.Black;
+            this.ConsoleOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ConsoleOut.Location = new System.Drawing.Point(0, 613);
             this.ConsoleOut.Multiline = true;
             this.ConsoleOut.Name = "ConsoleOut";
@@ -131,11 +131,12 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.groupBox6.Controls.Add(this.StopCheckupButton);
             this.groupBox6.Controls.Add(this.FullSystemCheckup);
             this.groupBox6.Controls.Add(this.DiskCheck);
             this.groupBox6.Controls.Add(this.FullCheckup);
+            this.groupBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox6.Location = new System.Drawing.Point(1, 567);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(594, 48);
@@ -145,10 +146,11 @@
             // 
             // StopCheckupButton
             // 
-            this.StopCheckupButton.BackColor = System.Drawing.SystemColors.Control;
+            this.StopCheckupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.StopCheckupButton.Enabled = false;
             this.StopCheckupButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.StopCheckupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StopCheckupButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.StopCheckupButton.Location = new System.Drawing.Point(441, 17);
             this.StopCheckupButton.Name = "StopCheckupButton";
             this.StopCheckupButton.Size = new System.Drawing.Size(135, 23);
@@ -159,9 +161,10 @@
             // 
             // FullSystemCheckup
             // 
-            this.FullSystemCheckup.BackColor = System.Drawing.SystemColors.Control;
+            this.FullSystemCheckup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.FullSystemCheckup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.FullSystemCheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FullSystemCheckup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FullSystemCheckup.Location = new System.Drawing.Point(18, 17);
             this.FullSystemCheckup.Name = "FullSystemCheckup";
             this.FullSystemCheckup.Size = new System.Drawing.Size(135, 23);
@@ -172,9 +175,10 @@
             // 
             // DiskCheck
             // 
-            this.DiskCheck.BackColor = System.Drawing.SystemColors.Control;
+            this.DiskCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.DiskCheck.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.DiskCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DiskCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DiskCheck.Location = new System.Drawing.Point(159, 17);
             this.DiskCheck.Name = "DiskCheck";
             this.DiskCheck.Size = new System.Drawing.Size(135, 23);
@@ -185,9 +189,10 @@
             // 
             // FullCheckup
             // 
-            this.FullCheckup.BackColor = System.Drawing.SystemColors.Control;
+            this.FullCheckup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.FullCheckup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.FullCheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FullCheckup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FullCheckup.Location = new System.Drawing.Point(300, 17);
             this.FullCheckup.Name = "FullCheckup";
             this.FullCheckup.Size = new System.Drawing.Size(135, 23);
@@ -198,13 +203,14 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.groupBox5.Controls.Add(this.ExclusionListTextBox);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.ExclusionListAdd);
             this.groupBox5.Controls.Add(this.ExclusionListRemove);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.ExclusionListBox);
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox5.Location = new System.Drawing.Point(1, 470);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(594, 96);
@@ -214,6 +220,8 @@
             // 
             // ExclusionListTextBox
             // 
+            this.ExclusionListTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ExclusionListTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ExclusionListTextBox.Location = new System.Drawing.Point(160, 59);
             this.ExclusionListTextBox.Name = "ExclusionListTextBox";
             this.ExclusionListTextBox.Size = new System.Drawing.Size(246, 20);
@@ -230,9 +238,10 @@
             // 
             // ExclusionListAdd
             // 
-            this.ExclusionListAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.ExclusionListAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ExclusionListAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ExclusionListAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExclusionListAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ExclusionListAdd.Location = new System.Drawing.Point(412, 57);
             this.ExclusionListAdd.Name = "ExclusionListAdd";
             this.ExclusionListAdd.Size = new System.Drawing.Size(82, 23);
@@ -243,9 +252,10 @@
             // 
             // ExclusionListRemove
             // 
-            this.ExclusionListRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.ExclusionListRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ExclusionListRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ExclusionListRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExclusionListRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ExclusionListRemove.Location = new System.Drawing.Point(412, 23);
             this.ExclusionListRemove.Name = "ExclusionListRemove";
             this.ExclusionListRemove.Size = new System.Drawing.Size(82, 23);
@@ -265,6 +275,8 @@
             // 
             // ExclusionListBox
             // 
+            this.ExclusionListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ExclusionListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ExclusionListBox.FormattingEnabled = true;
             this.ExclusionListBox.Location = new System.Drawing.Point(160, 24);
             this.ExclusionListBox.Name = "ExclusionListBox";
@@ -273,11 +285,12 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panel2.Controls.Add(this.RebootBox);
             this.panel2.Controls.Add(this.ClearConsole);
             this.panel2.Controls.Add(this.helpButton);
             this.panel2.Controls.Add(this.LoggingBox);
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Location = new System.Drawing.Point(0, 728);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(596, 33);
@@ -295,9 +308,10 @@
             // 
             // ClearConsole
             // 
-            this.ClearConsole.BackColor = System.Drawing.SystemColors.Control;
+            this.ClearConsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ClearConsole.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ClearConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClearConsole.Location = new System.Drawing.Point(78, 5);
             this.ClearConsole.Name = "ClearConsole";
             this.ClearConsole.Size = new System.Drawing.Size(158, 23);
@@ -308,9 +322,10 @@
             // 
             // helpButton
             // 
-            this.helpButton.BackColor = System.Drawing.SystemColors.Control;
+            this.helpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.helpButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.helpButton.Location = new System.Drawing.Point(18, 6);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(48, 23);
@@ -331,13 +346,14 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.groupBox4.Controls.Add(this.TasksTextBox);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.TasksDisableButton);
             this.groupBox4.Controls.Add(this.TasksDisableRemove);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.TasksDisableBox);
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox4.Location = new System.Drawing.Point(1, 369);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(594, 100);
@@ -347,6 +363,8 @@
             // 
             // TasksTextBox
             // 
+            this.TasksTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.TasksTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TasksTextBox.Location = new System.Drawing.Point(160, 61);
             this.TasksTextBox.Name = "TasksTextBox";
             this.TasksTextBox.Size = new System.Drawing.Size(246, 20);
@@ -363,9 +381,10 @@
             // 
             // TasksDisableButton
             // 
-            this.TasksDisableButton.BackColor = System.Drawing.SystemColors.Control;
+            this.TasksDisableButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.TasksDisableButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.TasksDisableButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TasksDisableButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TasksDisableButton.Location = new System.Drawing.Point(412, 59);
             this.TasksDisableButton.Name = "TasksDisableButton";
             this.TasksDisableButton.Size = new System.Drawing.Size(82, 23);
@@ -376,9 +395,10 @@
             // 
             // TasksDisableRemove
             // 
-            this.TasksDisableRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.TasksDisableRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.TasksDisableRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.TasksDisableRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TasksDisableRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TasksDisableRemove.Location = new System.Drawing.Point(412, 25);
             this.TasksDisableRemove.Name = "TasksDisableRemove";
             this.TasksDisableRemove.Size = new System.Drawing.Size(82, 23);
@@ -398,6 +418,8 @@
             // 
             // TasksDisableBox
             // 
+            this.TasksDisableBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.TasksDisableBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TasksDisableBox.FormattingEnabled = true;
             this.TasksDisableBox.Location = new System.Drawing.Point(160, 26);
             this.TasksDisableBox.Name = "TasksDisableBox";
@@ -406,7 +428,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.groupBox3.Controls.Add(this.ServicesTextBox);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.ServicesManualButton);
@@ -417,6 +439,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.ServicesManualBox);
             this.groupBox3.Controls.Add(this.ServicesDisableBox);
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox3.Location = new System.Drawing.Point(1, 241);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(594, 127);
@@ -426,6 +449,8 @@
             // 
             // ServicesTextBox
             // 
+            this.ServicesTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ServicesTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesTextBox.Location = new System.Drawing.Point(160, 88);
             this.ServicesTextBox.Name = "ServicesTextBox";
             this.ServicesTextBox.Size = new System.Drawing.Size(246, 20);
@@ -442,9 +467,10 @@
             // 
             // ServicesManualButton
             // 
-            this.ServicesManualButton.BackColor = System.Drawing.SystemColors.Control;
+            this.ServicesManualButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ServicesManualButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ServicesManualButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServicesManualButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesManualButton.Location = new System.Drawing.Point(500, 86);
             this.ServicesManualButton.Name = "ServicesManualButton";
             this.ServicesManualButton.Size = new System.Drawing.Size(82, 23);
@@ -455,9 +481,10 @@
             // 
             // ServicesDisableButton
             // 
-            this.ServicesDisableButton.BackColor = System.Drawing.SystemColors.Control;
+            this.ServicesDisableButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ServicesDisableButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ServicesDisableButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServicesDisableButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesDisableButton.Location = new System.Drawing.Point(412, 86);
             this.ServicesDisableButton.Name = "ServicesDisableButton";
             this.ServicesDisableButton.Size = new System.Drawing.Size(82, 23);
@@ -468,9 +495,10 @@
             // 
             // ServicesManualRemove
             // 
-            this.ServicesManualRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.ServicesManualRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ServicesManualRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ServicesManualRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServicesManualRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesManualRemove.Location = new System.Drawing.Point(412, 53);
             this.ServicesManualRemove.Name = "ServicesManualRemove";
             this.ServicesManualRemove.Size = new System.Drawing.Size(82, 23);
@@ -481,9 +509,10 @@
             // 
             // ServicesDisableRemove
             // 
-            this.ServicesDisableRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.ServicesDisableRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ServicesDisableRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ServicesDisableRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServicesDisableRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesDisableRemove.Location = new System.Drawing.Point(412, 22);
             this.ServicesDisableRemove.Name = "ServicesDisableRemove";
             this.ServicesDisableRemove.Size = new System.Drawing.Size(82, 23);
@@ -512,6 +541,8 @@
             // 
             // ServicesManualBox
             // 
+            this.ServicesManualBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ServicesManualBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesManualBox.FormattingEnabled = true;
             this.ServicesManualBox.Location = new System.Drawing.Point(160, 54);
             this.ServicesManualBox.Name = "ServicesManualBox";
@@ -520,6 +551,8 @@
             // 
             // ServicesDisableBox
             // 
+            this.ServicesDisableBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ServicesDisableBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesDisableBox.FormattingEnabled = true;
             this.ServicesDisableBox.Location = new System.Drawing.Point(160, 23);
             this.ServicesDisableBox.Name = "ServicesDisableBox";
@@ -528,7 +561,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.groupBox2.Controls.Add(this.PathHideBrowse);
             this.groupBox2.Controls.Add(this.PathHideRemove);
             this.groupBox2.Controls.Add(this.DirDelBrowse);
@@ -545,6 +578,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.PathFilesDelOldBox);
             this.groupBox2.Controls.Add(this.PathFilesDelBox);
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox2.Location = new System.Drawing.Point(1, 91);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(594, 149);
@@ -554,9 +588,10 @@
             // 
             // PathHideBrowse
             // 
-            this.PathHideBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.PathHideBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.PathHideBrowse.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.PathHideBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PathHideBrowse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathHideBrowse.Location = new System.Drawing.Point(500, 111);
             this.PathHideBrowse.Name = "PathHideBrowse";
             this.PathHideBrowse.Size = new System.Drawing.Size(82, 23);
@@ -567,9 +602,10 @@
             // 
             // PathHideRemove
             // 
-            this.PathHideRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.PathHideRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.PathHideRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.PathHideRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PathHideRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathHideRemove.Location = new System.Drawing.Point(412, 111);
             this.PathHideRemove.Name = "PathHideRemove";
             this.PathHideRemove.Size = new System.Drawing.Size(82, 23);
@@ -580,9 +616,10 @@
             // 
             // DirDelBrowse
             // 
-            this.DirDelBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.DirDelBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.DirDelBrowse.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.DirDelBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DirDelBrowse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DirDelBrowse.Location = new System.Drawing.Point(500, 24);
             this.DirDelBrowse.Name = "DirDelBrowse";
             this.DirDelBrowse.Size = new System.Drawing.Size(82, 23);
@@ -602,9 +639,10 @@
             // 
             // DirDelRemove
             // 
-            this.DirDelRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.DirDelRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.DirDelRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.DirDelRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DirDelRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DirDelRemove.Location = new System.Drawing.Point(412, 24);
             this.DirDelRemove.Name = "DirDelRemove";
             this.DirDelRemove.Size = new System.Drawing.Size(82, 23);
@@ -615,6 +653,8 @@
             // 
             // PathHideListBox
             // 
+            this.PathHideListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathHideListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathHideListBox.FormattingEnabled = true;
             this.PathHideListBox.Location = new System.Drawing.Point(160, 112);
             this.PathHideListBox.Name = "PathHideListBox";
@@ -632,6 +672,8 @@
             // 
             // DirToDelBox
             // 
+            this.DirToDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.DirToDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DirToDelBox.FormattingEnabled = true;
             this.DirToDelBox.Location = new System.Drawing.Point(160, 25);
             this.DirToDelBox.Name = "DirToDelBox";
@@ -640,9 +682,10 @@
             // 
             // PathFilesDelOldBrowse
             // 
-            this.PathFilesDelOldBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.PathFilesDelOldBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.PathFilesDelOldBrowse.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.PathFilesDelOldBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PathFilesDelOldBrowse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelOldBrowse.Location = new System.Drawing.Point(500, 82);
             this.PathFilesDelOldBrowse.Name = "PathFilesDelOldBrowse";
             this.PathFilesDelOldBrowse.Size = new System.Drawing.Size(82, 23);
@@ -653,9 +696,10 @@
             // 
             // PathFilesDelBrowse
             // 
-            this.PathFilesDelBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.PathFilesDelBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.PathFilesDelBrowse.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.PathFilesDelBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PathFilesDelBrowse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelBrowse.Location = new System.Drawing.Point(500, 53);
             this.PathFilesDelBrowse.Name = "PathFilesDelBrowse";
             this.PathFilesDelBrowse.Size = new System.Drawing.Size(82, 23);
@@ -666,9 +710,10 @@
             // 
             // PathFilesDelOldRemove
             // 
-            this.PathFilesDelOldRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.PathFilesDelOldRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.PathFilesDelOldRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.PathFilesDelOldRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PathFilesDelOldRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelOldRemove.Location = new System.Drawing.Point(412, 82);
             this.PathFilesDelOldRemove.Name = "PathFilesDelOldRemove";
             this.PathFilesDelOldRemove.Size = new System.Drawing.Size(82, 23);
@@ -679,9 +724,10 @@
             // 
             // PathFilesDelRemove
             // 
-            this.PathFilesDelRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.PathFilesDelRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.PathFilesDelRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.PathFilesDelRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PathFilesDelRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelRemove.Location = new System.Drawing.Point(412, 53);
             this.PathFilesDelRemove.Name = "PathFilesDelRemove";
             this.PathFilesDelRemove.Size = new System.Drawing.Size(82, 23);
@@ -710,6 +756,8 @@
             // 
             // PathFilesDelOldBox
             // 
+            this.PathFilesDelOldBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathFilesDelOldBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelOldBox.FormattingEnabled = true;
             this.PathFilesDelOldBox.Location = new System.Drawing.Point(160, 83);
             this.PathFilesDelOldBox.Name = "PathFilesDelOldBox";
@@ -718,6 +766,8 @@
             // 
             // PathFilesDelBox
             // 
+            this.PathFilesDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathFilesDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelBox.FormattingEnabled = true;
             this.PathFilesDelBox.Location = new System.Drawing.Point(160, 54);
             this.PathFilesDelBox.Name = "PathFilesDelBox";
@@ -726,7 +776,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.groupBox1.Controls.Add(this.FilesHideBrowse);
             this.groupBox1.Controls.Add(this.FilesDelBrowse);
             this.groupBox1.Controls.Add(this.FilesHideRemove);
@@ -735,6 +785,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.FilesHideBox);
             this.groupBox1.Controls.Add(this.FilesToDelBox);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Location = new System.Drawing.Point(1, 1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(594, 89);
@@ -744,9 +795,10 @@
             // 
             // FilesHideBrowse
             // 
-            this.FilesHideBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.FilesHideBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.FilesHideBrowse.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.FilesHideBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FilesHideBrowse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesHideBrowse.Location = new System.Drawing.Point(500, 52);
             this.FilesHideBrowse.Name = "FilesHideBrowse";
             this.FilesHideBrowse.Size = new System.Drawing.Size(82, 23);
@@ -757,9 +809,10 @@
             // 
             // FilesDelBrowse
             // 
-            this.FilesDelBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.FilesDelBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.FilesDelBrowse.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.FilesDelBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FilesDelBrowse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesDelBrowse.Location = new System.Drawing.Point(500, 23);
             this.FilesDelBrowse.Name = "FilesDelBrowse";
             this.FilesDelBrowse.Size = new System.Drawing.Size(82, 23);
@@ -770,9 +823,10 @@
             // 
             // FilesHideRemove
             // 
-            this.FilesHideRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.FilesHideRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.FilesHideRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.FilesHideRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FilesHideRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesHideRemove.Location = new System.Drawing.Point(412, 52);
             this.FilesHideRemove.Name = "FilesHideRemove";
             this.FilesHideRemove.Size = new System.Drawing.Size(82, 23);
@@ -783,9 +837,10 @@
             // 
             // FilesDelRemove
             // 
-            this.FilesDelRemove.BackColor = System.Drawing.SystemColors.Control;
+            this.FilesDelRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.FilesDelRemove.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.FilesDelRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FilesDelRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesDelRemove.Location = new System.Drawing.Point(412, 23);
             this.FilesDelRemove.Name = "FilesDelRemove";
             this.FilesDelRemove.Size = new System.Drawing.Size(82, 23);
@@ -814,6 +869,8 @@
             // 
             // FilesHideBox
             // 
+            this.FilesHideBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.FilesHideBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesHideBox.FormattingEnabled = true;
             this.FilesHideBox.Location = new System.Drawing.Point(160, 53);
             this.FilesHideBox.Name = "FilesHideBox";
@@ -822,6 +879,8 @@
             // 
             // FilesToDelBox
             // 
+            this.FilesToDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.FilesToDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesToDelBox.FormattingEnabled = true;
             this.FilesToDelBox.Location = new System.Drawing.Point(160, 24);
             this.FilesToDelBox.Name = "FilesToDelBox";
@@ -835,7 +894,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(596, 761);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(612, 534);
