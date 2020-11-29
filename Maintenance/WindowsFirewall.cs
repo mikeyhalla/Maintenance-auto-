@@ -7,6 +7,8 @@ namespace Maintenance
 {
     internal class WindowsFirewall
     {
+        static bool BackedUp = false;
+
         internal static void DeleteInvalid()
         {
             Directory.CreateDirectory("Backup");
@@ -19,10 +21,6 @@ namespace Maintenance
                     File.Delete(file);
                 }
             }
-
-            string datetime = DateTime.Now.ToString("Mdhms");
-            RunCommand("netsh", "advfirewall export " + "\"" + AppDomain.CurrentDomain.BaseDirectory + "\\Backup\\" + datetime + "_FirwallPolicy.wfw" + "\"");
-
 
             RunCommand("netsh", "advfirewall firewall show rule name=all verbose");
         }
@@ -73,6 +71,15 @@ namespace Maintenance
                         {
                             try
                             {
+                                if (!BackedUp)
+                                {
+                                    string datetime = DateTime.Now.ToString("Mdhms");
+
+                                    RunCommand("netsh", "advfirewall export " + "\"" + AppDomain.CurrentDomain.BaseDirectory + "\\Backup\\" + datetime + "_FirwallPolicy.wfw" + "\"");
+
+                                    BackedUp = true;
+                                }
+
                                 EasyLogger.Info("Removing (inbound/outbound) " + file + " from Windows Firewall...");
                                 RunCommand("netsh", "advfirewall firewall delete rule name=all program= " + "\"" + file + "\"");
                             }

@@ -1,5 +1,8 @@
 ﻿using Microsoft.Win32;
+using System;
+using System.Diagnostics;
 using System.IO;
+using System.Text;
 
 namespace Maintenance
 {
@@ -7,6 +10,17 @@ namespace Maintenance
     {
         internal static void DeleteInvalid()
         {
+            Directory.CreateDirectory("Backup");
+            foreach (string file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "\\Backup\\"))
+            {
+                FileInfo fileInfo = new FileInfo(file);
+                bool DatabaseBackedUpStatus = fileInfo.LastWriteTime <= DateTime.Now.AddDays(-30);
+                if (DatabaseBackedUpStatus)
+                {
+                    File.Delete(file);
+                }
+            }
+
             // User Path
             string NewUserPath = string.Empty;
             string OldUserPath = GetUserPath(@"Environment", "Path");
@@ -30,12 +44,14 @@ namespace Maintenance
                         NewUserPath += ";" + path;
                     }
                 }
-            }
-
-            EditUser(@"Environment", NewUserPath);
+            }            
 
             if (NewUserPath != OldUserPath)
             {
+                RunCommand("reg", "export " + @"HKEY_CURRENT_USER\Environment" + "\"" + AppDomain.CurrentDomain.BaseDirectory + "\\Backup\\" + DateTime.Now.ToString("Mdhms") + "_SystemPath.reg" + "\"");
+
+                EditUser(@"Environment", NewUserPath);
+
                 EasyLogger.Info("Updated User Path: " + NewUserPath);
             }
 
@@ -64,10 +80,12 @@ namespace Maintenance
                 }
             }
 
-            EditSystem(@"SYSTEM\CurrentControlSet\Control\Session Manager\Environment", NewSystemPath);
-
             if (NewSystemPath != OldSystemPath)
             {
+                RunCommand("reg", "export " + @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" + "\"" + AppDomain.CurrentDomain.BaseDirectory + "\\Backup\\" + DateTime.Now.ToString("Mdhms") + "_SystemPath.reg" + "\"");
+
+                EditSystem(@"SYSTEM\CurrentControlSet\Control\Session Manager\Environment", NewSystemPath);
+
                 EasyLogger.Info("Updated System Path: " + NewSystemPath);
             }
         }
@@ -123,6 +141,45 @@ namespace Maintenance
             {
                 myKey.SetValue("Path", value, RegistryValueKind.String);
                 myKey.Close();
+            }
+        }
+        private static void RunCommand(string filename, string args)
+        {
+            using (Process process = new Process())
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    StandardOutputEncoding = Encoding.GetEncoding(437),
+                    FileName = filename,
+                    Arguments = args
+                };
+
+                process.EnableRaisingEvents = true;
+                process.EnableRaisingEvents = true;
+                process.StartInfo = startInfo;
+
+                process.ErrorDataReceived += Proc_DataReceived;
+                process.OutputDataReceived += Proc_DataReceived;
+
+                process.Start();
+
+                process.BeginErrorReadLine();
+                process.BeginOutputReadLine();
+
+                process.WaitForExit();
+            }
+        }
+
+        private static void Proc_DataReceived(object sender, DataReceivedEventArgs e)
+        {
+            if (e.Data != null)
+            {
+                EasyLogger.Info(e.Data);
             }
         }
     }
