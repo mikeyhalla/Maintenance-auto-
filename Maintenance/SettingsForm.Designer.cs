@@ -92,6 +92,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FilesHideBox = new System.Windows.Forms.ComboBox();
             this.FilesToDelBox = new System.Windows.Forms.ComboBox();
+            this.InvalidFirewallBox = new System.Windows.Forms.CheckBox();
+            this.InvalidVariablesBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -115,7 +117,7 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 765);
+            this.panel1.Size = new System.Drawing.Size(597, 805);
             this.panel1.TabIndex = 20;
             // 
             // ConsoleOut
@@ -286,6 +288,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel2.Controls.Add(this.InvalidFirewallBox);
+            this.panel2.Controls.Add(this.InvalidVariablesBox);
             this.panel2.Controls.Add(this.RebootBox);
             this.panel2.Controls.Add(this.ClearConsole);
             this.panel2.Controls.Add(this.helpButton);
@@ -293,13 +297,13 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Location = new System.Drawing.Point(0, 728);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(596, 33);
+            this.panel2.Size = new System.Drawing.Size(596, 74);
             this.panel2.TabIndex = 54;
             // 
             // RebootBox
             // 
             this.RebootBox.AutoSize = true;
-            this.RebootBox.Location = new System.Drawing.Point(342, 9);
+            this.RebootBox.Location = new System.Drawing.Point(442, 6);
             this.RebootBox.Name = "RebootBox";
             this.RebootBox.Size = new System.Drawing.Size(130, 17);
             this.RebootBox.TabIndex = 24;
@@ -312,9 +316,9 @@
             this.ClearConsole.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.ClearConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClearConsole.Location = new System.Drawing.Point(78, 5);
+            this.ClearConsole.Location = new System.Drawing.Point(108, 36);
             this.ClearConsole.Name = "ClearConsole";
-            this.ClearConsole.Size = new System.Drawing.Size(158, 23);
+            this.ClearConsole.Size = new System.Drawing.Size(334, 23);
             this.ClearConsole.TabIndex = 23;
             this.ClearConsole.Text = "Clear Console";
             this.ClearConsole.UseVisualStyleBackColor = false;
@@ -326,9 +330,9 @@
             this.helpButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.helpButton.Location = new System.Drawing.Point(18, 6);
+            this.helpButton.Location = new System.Drawing.Point(12, 36);
             this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(48, 23);
+            this.helpButton.Size = new System.Drawing.Size(90, 23);
             this.helpButton.TabIndex = 22;
             this.helpButton.Text = "?";
             this.helpButton.UseVisualStyleBackColor = false;
@@ -337,7 +341,7 @@
             // LoggingBox
             // 
             this.LoggingBox.AutoSize = true;
-            this.LoggingBox.Location = new System.Drawing.Point(478, 9);
+            this.LoggingBox.Location = new System.Drawing.Point(466, 42);
             this.LoggingBox.Name = "LoggingBox";
             this.LoggingBox.Size = new System.Drawing.Size(106, 17);
             this.LoggingBox.TabIndex = 20;
@@ -887,12 +891,34 @@
             this.FilesToDelBox.Size = new System.Drawing.Size(246, 21);
             this.FilesToDelBox.TabIndex = 39;
             // 
+            // InvalidFirewallBox
+            // 
+            this.InvalidFirewallBox.AutoSize = true;
+            this.InvalidFirewallBox.Location = new System.Drawing.Point(19, 6);
+            this.InvalidFirewallBox.Name = "InvalidFirewallBox";
+            this.InvalidFirewallBox.Size = new System.Drawing.Size(171, 17);
+            this.InvalidFirewallBox.TabIndex = 26;
+            this.InvalidFirewallBox.Text = "Remove invalid Firewall entries";
+            this.InvalidFirewallBox.UseVisualStyleBackColor = true;
+            this.InvalidFirewallBox.CheckedChanged += new System.EventHandler(this.InvalidFirewallBox_CheckedChanged);
+            // 
+            // InvalidVariablesBox
+            // 
+            this.InvalidVariablesBox.AutoSize = true;
+            this.InvalidVariablesBox.Location = new System.Drawing.Point(209, 6);
+            this.InvalidVariablesBox.Name = "InvalidVariablesBox";
+            this.InvalidVariablesBox.Size = new System.Drawing.Size(207, 17);
+            this.InvalidVariablesBox.TabIndex = 25;
+            this.InvalidVariablesBox.Text = "Remove invalid Environment Variables";
+            this.InvalidVariablesBox.UseVisualStyleBackColor = true;
+            this.InvalidVariablesBox.CheckedChanged += new System.EventHandler(this.InvalidVariablesBox_CheckedChanged);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(596, 761);
+            this.ClientSize = new System.Drawing.Size(596, 799);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -984,5 +1010,7 @@
         private System.Windows.Forms.Button ClearConsole;
         private System.Windows.Forms.Button StopCheckupButton;
         private System.Windows.Forms.CheckBox RebootBox;
+        private System.Windows.Forms.CheckBox InvalidFirewallBox;
+        private System.Windows.Forms.CheckBox InvalidVariablesBox;
     }
 }

@@ -78,6 +78,9 @@ namespace Maintenance
                 ExclusionListBox.Items.Add(item);
             }
 
+            InvalidFirewallBox.Checked = Default.InvalidFirewallBox;
+            InvalidVariablesBox.Checked = Default.InvalidVariablesBox;
+
             LoggingBox.Checked = Default.LoggingEnabled;
 
             Subscribe();
@@ -1153,5 +1156,33 @@ namespace Maintenance
             }
         }
         #endregion Full System Checkup
+
+        private void InvalidFirewallBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (InvalidFirewallBox.Checked)
+            {
+                Default.InvalidFirewallBox = true;
+            }
+            else
+            {
+                Default.InvalidFirewallBox = false;
+            }
+
+            Default.Save();
+        }
+
+        private void InvalidVariablesBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (InvalidVariablesBox.Checked)
+            {
+                Default.InvalidVariablesBox = true;
+            }
+            else
+            {
+                Default.InvalidVariablesBox = false;
+            }
+
+            Default.Save();
+        }
     }
 }

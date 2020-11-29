@@ -44,7 +44,7 @@ namespace Maintenance
                 {
                     string A0 = args[0].ToLower();
 
-                    if (args[0] == "/Logon" || args[0] == "-Logon")
+                    if (args[0] == "/optimize" || args[0] == "-optimize")
                     {
                         StartLightCleanup();
                     }
@@ -66,13 +66,25 @@ namespace Maintenance
                 settings.ShowDialog();
             }
 
-            EasyLogger.Info("*********************  END OF FILE  *********************");
+            EasyLogger.Info("*********************  END OF OPIMIZATIONS  *********************");
 
             Environment.Exit(0);
         }
 
         private static void StartLightCleanup()
         {
+            if (Default.InvalidFirewallBox)
+            {
+                EasyLogger.Info("*********************  Remove Invalid Firewall Rules  *********************" + Environment.NewLine);
+                WindowsFirewall.DeleteInvalid();
+            }
+
+            if (Default.InvalidVariablesBox)
+            {
+                EasyLogger.Info("*********************  Remove Invalid Environment Variables  *********************" + Environment.NewLine);
+                WindowsVariables.DeleteInvalid();
+            }
+
             if (Default.TasksToDisable.Count > 0)
             {
                 EasyLogger.Info("*********************  Disable Scheduled Tasks  *********************" + Environment.NewLine);
