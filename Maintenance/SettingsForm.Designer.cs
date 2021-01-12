@@ -35,7 +35,7 @@
             this.StopCheckupButton = new System.Windows.Forms.Button();
             this.FullSystemCheckup = new System.Windows.Forms.Button();
             this.DiskCheck = new System.Windows.Forms.Button();
-            this.FullCheckup = new System.Windows.Forms.Button();
+            this.Checkup = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ExclusionListTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -44,6 +44,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.ExclusionListBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.InvalidFirewallBox = new System.Windows.Forms.CheckBox();
+            this.InvalidVariablesBox = new System.Windows.Forms.CheckBox();
             this.RebootBox = new System.Windows.Forms.CheckBox();
             this.ClearConsole = new System.Windows.Forms.Button();
             this.helpButton = new System.Windows.Forms.Button();
@@ -92,8 +94,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FilesHideBox = new System.Windows.Forms.ComboBox();
             this.FilesToDelBox = new System.Windows.Forms.ComboBox();
-            this.InvalidFirewallBox = new System.Windows.Forms.CheckBox();
-            this.InvalidVariablesBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -137,7 +137,7 @@
             this.groupBox6.Controls.Add(this.StopCheckupButton);
             this.groupBox6.Controls.Add(this.FullSystemCheckup);
             this.groupBox6.Controls.Add(this.DiskCheck);
-            this.groupBox6.Controls.Add(this.FullCheckup);
+            this.groupBox6.Controls.Add(this.Checkup);
             this.groupBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox6.Location = new System.Drawing.Point(1, 567);
             this.groupBox6.Name = "groupBox6";
@@ -181,7 +181,7 @@
             this.DiskCheck.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.DiskCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DiskCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DiskCheck.Location = new System.Drawing.Point(159, 17);
+            this.DiskCheck.Location = new System.Drawing.Point(300, 17);
             this.DiskCheck.Name = "DiskCheck";
             this.DiskCheck.Size = new System.Drawing.Size(135, 23);
             this.DiskCheck.TabIndex = 61;
@@ -189,19 +189,19 @@
             this.DiskCheck.UseVisualStyleBackColor = false;
             this.DiskCheck.Click += new System.EventHandler(this.DiskCheck_Click);
             // 
-            // FullCheckup
+            // Checkup
             // 
-            this.FullCheckup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.FullCheckup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.FullCheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FullCheckup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.FullCheckup.Location = new System.Drawing.Point(300, 17);
-            this.FullCheckup.Name = "FullCheckup";
-            this.FullCheckup.Size = new System.Drawing.Size(135, 23);
-            this.FullCheckup.TabIndex = 54;
-            this.FullCheckup.Text = "System Checkup";
-            this.FullCheckup.UseVisualStyleBackColor = false;
-            this.FullCheckup.Click += new System.EventHandler(this.FullCheckup_Click);
+            this.Checkup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.Checkup.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.Checkup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Checkup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Checkup.Location = new System.Drawing.Point(159, 17);
+            this.Checkup.Name = "Checkup";
+            this.Checkup.Size = new System.Drawing.Size(135, 23);
+            this.Checkup.TabIndex = 54;
+            this.Checkup.Text = "Checkup (no chkdsk)";
+            this.Checkup.UseVisualStyleBackColor = false;
+            this.Checkup.Click += new System.EventHandler(this.Checkup_Click);
             // 
             // groupBox5
             // 
@@ -299,6 +299,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(596, 74);
             this.panel2.TabIndex = 54;
+            // 
+            // InvalidFirewallBox
+            // 
+            this.InvalidFirewallBox.AutoSize = true;
+            this.InvalidFirewallBox.Location = new System.Drawing.Point(19, 6);
+            this.InvalidFirewallBox.Name = "InvalidFirewallBox";
+            this.InvalidFirewallBox.Size = new System.Drawing.Size(171, 17);
+            this.InvalidFirewallBox.TabIndex = 26;
+            this.InvalidFirewallBox.Text = "Remove invalid Firewall entries";
+            this.InvalidFirewallBox.UseVisualStyleBackColor = true;
+            this.InvalidFirewallBox.CheckedChanged += new System.EventHandler(this.InvalidFirewallBox_CheckedChanged);
+            // 
+            // InvalidVariablesBox
+            // 
+            this.InvalidVariablesBox.AutoSize = true;
+            this.InvalidVariablesBox.Location = new System.Drawing.Point(209, 6);
+            this.InvalidVariablesBox.Name = "InvalidVariablesBox";
+            this.InvalidVariablesBox.Size = new System.Drawing.Size(207, 17);
+            this.InvalidVariablesBox.TabIndex = 25;
+            this.InvalidVariablesBox.Text = "Remove invalid Environment Variables";
+            this.InvalidVariablesBox.UseVisualStyleBackColor = true;
+            this.InvalidVariablesBox.CheckedChanged += new System.EventHandler(this.InvalidVariablesBox_CheckedChanged);
             // 
             // RebootBox
             // 
@@ -891,28 +913,6 @@
             this.FilesToDelBox.Size = new System.Drawing.Size(246, 21);
             this.FilesToDelBox.TabIndex = 39;
             // 
-            // InvalidFirewallBox
-            // 
-            this.InvalidFirewallBox.AutoSize = true;
-            this.InvalidFirewallBox.Location = new System.Drawing.Point(19, 6);
-            this.InvalidFirewallBox.Name = "InvalidFirewallBox";
-            this.InvalidFirewallBox.Size = new System.Drawing.Size(171, 17);
-            this.InvalidFirewallBox.TabIndex = 26;
-            this.InvalidFirewallBox.Text = "Remove invalid Firewall entries";
-            this.InvalidFirewallBox.UseVisualStyleBackColor = true;
-            this.InvalidFirewallBox.CheckedChanged += new System.EventHandler(this.InvalidFirewallBox_CheckedChanged);
-            // 
-            // InvalidVariablesBox
-            // 
-            this.InvalidVariablesBox.AutoSize = true;
-            this.InvalidVariablesBox.Location = new System.Drawing.Point(209, 6);
-            this.InvalidVariablesBox.Name = "InvalidVariablesBox";
-            this.InvalidVariablesBox.Size = new System.Drawing.Size(207, 17);
-            this.InvalidVariablesBox.TabIndex = 25;
-            this.InvalidVariablesBox.Text = "Remove invalid Environment Variables";
-            this.InvalidVariablesBox.UseVisualStyleBackColor = true;
-            this.InvalidVariablesBox.CheckedChanged += new System.EventHandler(this.InvalidVariablesBox_CheckedChanged);
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1003,7 +1003,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox PathHideListBox;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button FullCheckup;
+        private System.Windows.Forms.Button Checkup;
         private System.Windows.Forms.Button DiskCheck;
         private System.Windows.Forms.Button FullSystemCheckup;
         private System.Windows.Forms.TextBox ConsoleOut;

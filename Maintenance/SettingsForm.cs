@@ -93,7 +93,6 @@ namespace Maintenance
         private void Subscribe()
         {
             LoggingBox.CheckedChanged += LoggingBox_CheckedChanged;
-
             FilesToDelBox.KeyDown += FilesToDelBox_KeyDown;
             FilesHideBox.KeyDown += FilesHideBox_KeyDown;
             DirToDelBox.KeyDown += DirToDelBox_KeyDown;
@@ -846,7 +845,7 @@ namespace Maintenance
             th.Start();
         }
 
-        private void FullCheckup_Click(object sender, EventArgs e)
+        private void Checkup_Click(object sender, EventArgs e)
         {
             Thread th = new Thread(StartCheckup)
             {
@@ -860,7 +859,7 @@ namespace Maintenance
             StopRequested = false;
             StopCheckupButton.Enabled = true;
             FullSystemCheckup.Enabled = true;
-            FullCheckup.Enabled = false;
+            Checkup.Enabled = false;
             FullSystemCheckup.Enabled = false;
             DiskCheck.Enabled = false;
 
@@ -881,7 +880,7 @@ namespace Maintenance
                 {
                     StopCheckupButton.Enabled = false;
                     FullSystemCheckup.Enabled = false;
-                    FullCheckup.Enabled = true;
+                    Checkup.Enabled = true;
                     FullSystemCheckup.Enabled = true;
                     DiskCheck.Enabled = true;
                     return;
@@ -892,7 +891,7 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
@@ -902,12 +901,15 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
 
+                Console("**************************  Disk Check Completed  **************************");
+
                 if (RebootBox.Checked)
                 {
+                    Console("************************  Rebooting in 30 seconds  ************************");
                     using (Process p = new Process())
                     {
                         p.StartInfo.FileName = "shutdown";
@@ -928,7 +930,7 @@ namespace Maintenance
             StopRequested = false;
             StopCheckupButton.Enabled = true;
             FullSystemCheckup.Enabled = true;
-            FullCheckup.Enabled = false;
+            Checkup.Enabled = false;
             FullSystemCheckup.Enabled = false;
             DiskCheck.Enabled = false;
 
@@ -940,7 +942,7 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
@@ -951,7 +953,7 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
@@ -965,7 +967,7 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
@@ -975,7 +977,7 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
@@ -989,7 +991,7 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
@@ -999,7 +1001,7 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
@@ -1012,7 +1014,7 @@ namespace Maintenance
             {
                 StopCheckupButton.Enabled = false;
                 FullSystemCheckup.Enabled = false;
-                FullCheckup.Enabled = true;
+                Checkup.Enabled = true;
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
                 return;
@@ -1020,12 +1022,16 @@ namespace Maintenance
 
             StopCheckupButton.Enabled = false;
             FullSystemCheckup.Enabled = false;
-            FullCheckup.Enabled = true;
+            Checkup.Enabled = true;
             FullSystemCheckup.Enabled = true;
             DiskCheck.Enabled = true;
 
+            Console("***************************  Checkup Completed  ***************************");
+
             if (RebootBox.Checked)
             {
+                Console("************************  Rebooting in 30 seconds  ************************");
+
                 using (Process p = new Process())
                 {
                     p.StartInfo.FileName = "shutdown";
