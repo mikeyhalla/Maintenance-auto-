@@ -73,6 +73,11 @@ namespace Maintenance
 
         private static void StartLightCleanup()
         {
+            if (Default.DeleteBrokenShortcuts)
+            {
+                EasyLogger.Info("*********************  Delete Broken Shortcuts  *********************" + Environment.NewLine);
+                BrokenShortcuts.Remove();
+            }
             if (Default.InvalidFirewallBox)
             {
                 EasyLogger.Info("*********************  Remove Invalid Firewall Rules  *********************" + Environment.NewLine);

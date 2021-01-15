@@ -82,6 +82,7 @@ namespace Maintenance
             InvalidVariablesBox.Checked = Default.InvalidVariablesBox;
 
             LoggingBox.Checked = Default.LoggingEnabled;
+            brokenShortcutsBox.Checked = Default.DeleteBrokenShortcuts;
 
             Subscribe();
         }
@@ -92,6 +93,7 @@ namespace Maintenance
 
         private void Subscribe()
         {
+            brokenShortcutsBox.CheckedChanged += BrokenShortcutsBox_CheckedChanged;
             LoggingBox.CheckedChanged += LoggingBox_CheckedChanged;
             FilesToDelBox.KeyDown += FilesToDelBox_KeyDown;
             FilesHideBox.KeyDown += FilesHideBox_KeyDown;
@@ -206,6 +208,20 @@ namespace Maintenance
         #endregion Subscriptions
 
         #region CheckBoxes and Help Button
+
+        private void BrokenShortcutsBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (brokenShortcutsBox.Checked)
+            {
+                Default.DeleteBrokenShortcuts = true;
+            }
+            else
+            {
+                Default.DeleteBrokenShortcuts = false;
+            }
+
+            Default.Save();
+        }
 
         private void LoggingBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -905,11 +921,11 @@ namespace Maintenance
                 FullSystemCheckup.Enabled = true;
                 DiskCheck.Enabled = true;
 
-                Console("**************************  Disk Check Completed  **************************");
+                Console("*********************  Disk Check Completed  *********************");
 
                 if (RebootBox.Checked)
                 {
-                    Console("************************  Rebooting in 30 seconds  ************************");
+                    Console("*********************  Rebooting in 30 seconds  *********************");
                     using (Process p = new Process())
                     {
                         p.StartInfo.FileName = "shutdown";
@@ -935,8 +951,8 @@ namespace Maintenance
             DiskCheck.Enabled = false;
 
             StopRequested = false;
-            EasyLogger.Info("*******************************  Flush DNS  *******************************" + Environment.NewLine);
-            BeginInvoke(new MethodInvoker(() => Console("*******************************  Flush DNS  *******************************")));
+            EasyLogger.Info("*********************  Flush DNS  *********************" + Environment.NewLine);
+            BeginInvoke(new MethodInvoker(() => Console("*********************  Flush DNS  *********************")));
             RunCommand("ipconfig.exe", "/flushdns", "Flush DNS");
             if (StopRequested)
             {
@@ -959,8 +975,8 @@ namespace Maintenance
                 return;
             }
 
-            EasyLogger.Info("*******************************  Sync Time  *******************************" + Environment.NewLine);
-            BeginInvoke(new MethodInvoker(() => Console("*******************************  Sync Time  *******************************")));
+            EasyLogger.Info("*********************  Sync Time  *********************" + Environment.NewLine);
+            BeginInvoke(new MethodInvoker(() => Console("*********************  Sync Time  *********************")));
 
             RunCommand("net.exe", "start w32time", "w32time");
             if (StopRequested)
@@ -983,8 +999,8 @@ namespace Maintenance
                 return;
             }
 
-            EasyLogger.Info("*******************************  DISM Checkup  *******************************" + Environment.NewLine);
-            BeginInvoke(new MethodInvoker(() => Console("*******************************  DISM Checkup  *******************************")));
+            EasyLogger.Info("*********************  DISM Checkup  *********************" + Environment.NewLine);
+            BeginInvoke(new MethodInvoker(() => Console("*********************  DISM Checkup  *********************")));
 
             RunCommand("DISM.exe", "/online /Cleanup-Image /StartComponentCleanup /ResetBase /RestoreHealth", "DISM");
             if (StopRequested)
@@ -1007,8 +1023,8 @@ namespace Maintenance
                 return;
             }
 
-            EasyLogger.Info("*******************************  System File Checker  *******************************" + Environment.NewLine);
-            BeginInvoke(new MethodInvoker(() => Console("*******************************  System File Checker  *******************************")));
+            EasyLogger.Info("*********************  System File Checker  *********************" + Environment.NewLine);
+            BeginInvoke(new MethodInvoker(() => Console("*********************  System File Checker  *********************")));
             RunCommand("sfc.exe", "/scannow", "SFC");
             if (StopRequested)
             {

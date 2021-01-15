@@ -94,6 +94,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FilesHideBox = new System.Windows.Forms.ComboBox();
             this.FilesToDelBox = new System.Windows.Forms.ComboBox();
+            this.brokenShortcutsBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -115,6 +116,7 @@
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(597, 805);
@@ -128,12 +130,12 @@
             this.ConsoleOut.Multiline = true;
             this.ConsoleOut.Name = "ConsoleOut";
             this.ConsoleOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ConsoleOut.Size = new System.Drawing.Size(597, 115);
+            this.ConsoleOut.Size = new System.Drawing.Size(616, 115);
             this.ConsoleOut.TabIndex = 57;
             // 
             // groupBox6
             // 
-            this.groupBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.groupBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.groupBox6.Controls.Add(this.StopCheckupButton);
             this.groupBox6.Controls.Add(this.FullSystemCheckup);
             this.groupBox6.Controls.Add(this.DiskCheck);
@@ -205,7 +207,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.groupBox5.Controls.Add(this.ExclusionListTextBox);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.ExclusionListAdd);
@@ -232,6 +234,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label11.Location = new System.Drawing.Point(49, 62);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 13);
@@ -269,6 +272,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label12.Location = new System.Drawing.Point(15, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(71, 13);
@@ -278,6 +282,7 @@
             // ExclusionListBox
             // 
             this.ExclusionListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ExclusionListBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExclusionListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ExclusionListBox.FormattingEnabled = true;
             this.ExclusionListBox.Location = new System.Drawing.Point(160, 24);
@@ -288,6 +293,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel2.Controls.Add(this.brokenShortcutsBox);
             this.panel2.Controls.Add(this.InvalidFirewallBox);
             this.panel2.Controls.Add(this.InvalidVariablesBox);
             this.panel2.Controls.Add(this.RebootBox);
@@ -303,7 +309,8 @@
             // InvalidFirewallBox
             // 
             this.InvalidFirewallBox.AutoSize = true;
-            this.InvalidFirewallBox.Location = new System.Drawing.Point(19, 6);
+            this.InvalidFirewallBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.InvalidFirewallBox.Location = new System.Drawing.Point(12, 6);
             this.InvalidFirewallBox.Name = "InvalidFirewallBox";
             this.InvalidFirewallBox.Size = new System.Drawing.Size(171, 17);
             this.InvalidFirewallBox.TabIndex = 26;
@@ -314,7 +321,8 @@
             // InvalidVariablesBox
             // 
             this.InvalidVariablesBox.AutoSize = true;
-            this.InvalidVariablesBox.Location = new System.Drawing.Point(209, 6);
+            this.InvalidVariablesBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.InvalidVariablesBox.Location = new System.Drawing.Point(212, 6);
             this.InvalidVariablesBox.Name = "InvalidVariablesBox";
             this.InvalidVariablesBox.Size = new System.Drawing.Size(207, 17);
             this.InvalidVariablesBox.TabIndex = 25;
@@ -325,7 +333,8 @@
             // RebootBox
             // 
             this.RebootBox.AutoSize = true;
-            this.RebootBox.Location = new System.Drawing.Point(442, 6);
+            this.RebootBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.RebootBox.Location = new System.Drawing.Point(449, 6);
             this.RebootBox.Name = "RebootBox";
             this.RebootBox.Size = new System.Drawing.Size(130, 17);
             this.RebootBox.TabIndex = 24;
@@ -340,7 +349,7 @@
             this.ClearConsole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClearConsole.Location = new System.Drawing.Point(108, 36);
             this.ClearConsole.Name = "ClearConsole";
-            this.ClearConsole.Size = new System.Drawing.Size(334, 23);
+            this.ClearConsole.Size = new System.Drawing.Size(199, 23);
             this.ClearConsole.TabIndex = 23;
             this.ClearConsole.Text = "Clear Console";
             this.ClearConsole.UseVisualStyleBackColor = false;
@@ -363,7 +372,8 @@
             // LoggingBox
             // 
             this.LoggingBox.AutoSize = true;
-            this.LoggingBox.Location = new System.Drawing.Point(466, 42);
+            this.LoggingBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LoggingBox.Location = new System.Drawing.Point(471, 40);
             this.LoggingBox.Name = "LoggingBox";
             this.LoggingBox.Size = new System.Drawing.Size(106, 17);
             this.LoggingBox.TabIndex = 20;
@@ -372,7 +382,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.groupBox4.Controls.Add(this.TasksTextBox);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.TasksDisableButton);
@@ -399,6 +409,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label10.Location = new System.Drawing.Point(49, 64);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 13);
@@ -436,6 +447,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label8.Location = new System.Drawing.Point(15, 29);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 13);
@@ -445,6 +457,7 @@
             // TasksDisableBox
             // 
             this.TasksDisableBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.TasksDisableBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TasksDisableBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TasksDisableBox.FormattingEnabled = true;
             this.TasksDisableBox.Location = new System.Drawing.Point(160, 26);
@@ -454,7 +467,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.groupBox3.Controls.Add(this.ServicesTextBox);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.ServicesManualButton);
@@ -485,6 +498,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label9.Location = new System.Drawing.Point(49, 91);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 13);
@@ -550,6 +564,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label7.Location = new System.Drawing.Point(15, 57);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 13);
@@ -559,6 +574,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label6.Location = new System.Drawing.Point(15, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 13);
@@ -568,6 +584,7 @@
             // ServicesManualBox
             // 
             this.ServicesManualBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ServicesManualBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ServicesManualBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesManualBox.FormattingEnabled = true;
             this.ServicesManualBox.Location = new System.Drawing.Point(160, 54);
@@ -578,6 +595,7 @@
             // ServicesDisableBox
             // 
             this.ServicesDisableBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ServicesDisableBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ServicesDisableBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesDisableBox.FormattingEnabled = true;
             this.ServicesDisableBox.Location = new System.Drawing.Point(160, 23);
@@ -587,7 +605,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.groupBox2.Controls.Add(this.PathHideBrowse);
             this.groupBox2.Controls.Add(this.PathHideRemove);
             this.groupBox2.Controls.Add(this.DirDelBrowse);
@@ -657,6 +675,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label13.Location = new System.Drawing.Point(15, 115);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(101, 13);
@@ -680,6 +699,7 @@
             // PathHideListBox
             // 
             this.PathHideListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathHideListBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PathHideListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathHideListBox.FormattingEnabled = true;
             this.PathHideListBox.Location = new System.Drawing.Point(160, 112);
@@ -690,6 +710,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label1.Location = new System.Drawing.Point(15, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 13);
@@ -699,6 +720,7 @@
             // DirToDelBox
             // 
             this.DirToDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.DirToDelBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DirToDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DirToDelBox.FormattingEnabled = true;
             this.DirToDelBox.Location = new System.Drawing.Point(160, 25);
@@ -765,6 +787,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label5.Location = new System.Drawing.Point(15, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(134, 13);
@@ -774,6 +797,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label4.Location = new System.Drawing.Point(15, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 13);
@@ -783,6 +807,7 @@
             // PathFilesDelOldBox
             // 
             this.PathFilesDelOldBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathFilesDelOldBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PathFilesDelOldBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelOldBox.FormattingEnabled = true;
             this.PathFilesDelOldBox.Location = new System.Drawing.Point(160, 83);
@@ -793,6 +818,7 @@
             // PathFilesDelBox
             // 
             this.PathFilesDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathFilesDelBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PathFilesDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelBox.FormattingEnabled = true;
             this.PathFilesDelBox.Location = new System.Drawing.Point(160, 54);
@@ -802,7 +828,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.groupBox1.Controls.Add(this.FilesHideBrowse);
             this.groupBox1.Controls.Add(this.FilesDelBrowse);
             this.groupBox1.Controls.Add(this.FilesHideRemove);
@@ -878,6 +904,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label3.Location = new System.Drawing.Point(15, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
@@ -887,6 +914,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Location = new System.Drawing.Point(15, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
@@ -896,6 +924,7 @@
             // FilesHideBox
             // 
             this.FilesHideBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.FilesHideBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FilesHideBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesHideBox.FormattingEnabled = true;
             this.FilesHideBox.Location = new System.Drawing.Point(160, 53);
@@ -906,12 +935,24 @@
             // FilesToDelBox
             // 
             this.FilesToDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.FilesToDelBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FilesToDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesToDelBox.FormattingEnabled = true;
             this.FilesToDelBox.Location = new System.Drawing.Point(160, 24);
             this.FilesToDelBox.Name = "FilesToDelBox";
             this.FilesToDelBox.Size = new System.Drawing.Size(246, 21);
             this.FilesToDelBox.TabIndex = 39;
+            // 
+            // brokenShortcutsBox
+            // 
+            this.brokenShortcutsBox.AutoSize = true;
+            this.brokenShortcutsBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.brokenShortcutsBox.Location = new System.Drawing.Point(321, 40);
+            this.brokenShortcutsBox.Name = "brokenShortcutsBox";
+            this.brokenShortcutsBox.Size = new System.Drawing.Size(139, 17);
+            this.brokenShortcutsBox.TabIndex = 27;
+            this.brokenShortcutsBox.Text = "Delete broken shortcuts";
+            this.brokenShortcutsBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
@@ -920,6 +961,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(596, 799);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1012,5 +1054,6 @@
         private System.Windows.Forms.CheckBox RebootBox;
         private System.Windows.Forms.CheckBox InvalidFirewallBox;
         private System.Windows.Forms.CheckBox InvalidVariablesBox;
+        private System.Windows.Forms.CheckBox brokenShortcutsBox;
     }
 }

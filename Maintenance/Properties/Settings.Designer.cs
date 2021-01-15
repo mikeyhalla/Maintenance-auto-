@@ -212,5 +212,17 @@ namespace Maintenance.Properties {
                 this["InvalidVariablesBox"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DeleteBrokenShortcuts {
+            get {
+                return ((bool)(this["DeleteBrokenShortcuts"]));
+            }
+            set {
+                this["DeleteBrokenShortcuts"] = value;
+            }
+        }
     }
 }
