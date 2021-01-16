@@ -129,14 +129,40 @@ namespace Maintenance
 
                 try
                 {
-                    if (!Directory.EnumerateFileSystemEntries(directory).Any())
+                    int totalDirectories = 0;
+                    foreach (string dir in Directory.GetDirectories(directory))
                     {
-                        EasyLogger.Info("Removing empty directory: " + directory);
-                        try
+                        totalDirectories++;
+                    }
+                    if (totalDirectories == 0)
+                    {
+                        int totalFiles = 0;
+                        foreach (string file in Directory.GetFiles(directory))
                         {
-                            Directory.Delete(directory, false);
+                            if (Path.GetFileName(file.ToLower()) != "desktop.ini" && Path.GetFileName(file.ToLower()) != "thumbs.db")
+                            {
+                                totalFiles++;
+                            }
                         }
-                        catch { continue; }
+                        if (totalFiles == 0)
+                        {
+                            foreach (string file in Directory.GetFiles(directory))
+                            {
+                                if (Path.GetFileName(file.ToLower()) == "desktop.ini" || Path.GetFileName(file.ToLower()) == "thumbs.db")
+                                {
+                                    File.Delete(file);
+                                }
+                            }
+                            EasyLogger.Info("Removing empty directory: " + directory);
+                            try
+                            {
+                                Directory.Delete(directory);
+                            }
+                            catch (Exception ex)
+                            {
+                                EasyLogger.Error(ex);
+                            }
+                        }
                     }
                 }
                 catch { continue; }
