@@ -87,10 +87,13 @@ namespace Maintenance
 ;
                         try
                         {
-                            FileAttributes attr = File.GetAttributes(path);
-                            _ = attr.HasFlag(FileAttributes.Directory);
+                            if (!string.IsNullOrEmpty(path))
+                            {
+                                FileAttributes attr = File.GetAttributes(path);
+                                _ = attr.HasFlag(FileAttributes.Directory);
+                            }
                         }
-                        catch (Exception ex)
+                        catch
                         {
                             EasyLogger.Info("Deleting broken shortcut: " + shortcut + ". The target doesn't exits: " + path);
                             try
