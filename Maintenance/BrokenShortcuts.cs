@@ -123,7 +123,10 @@ namespace Maintenance
             {
                 try
                 {
-                    DeleteEmptySubdirectories(directory);
+                    if (directory != Environment.GetFolderPath(Environment.SpecialFolder.Startup) && directory != Environment.GetFolderPath(Environment.SpecialFolder.CommonStartup))
+                    {
+                        DeleteEmptySubdirectories(directory);
+                    }
                 }
                 catch { continue; }
 
