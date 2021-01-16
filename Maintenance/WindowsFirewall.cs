@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Maintenance
@@ -12,14 +13,9 @@ namespace Maintenance
         internal static void DeleteInvalid()
         {
             Directory.CreateDirectory("Backup");
-            foreach (string file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "\\Backup\\"))
+            foreach (var fi in new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "\\Backup\\").GetFiles().OrderByDescending(x => x.LastWriteTime).Skip(2))
             {
-                FileInfo fileInfo = new FileInfo(file);
-                bool DatabaseBackedUpStatus = fileInfo.LastWriteTime <= DateTime.Now.AddDays(-30);
-                if (DatabaseBackedUpStatus)
-                {
-                    File.Delete(file);
-                }
+                fi.Delete();
             }
 
             RunCommand("netsh", "advfirewall firewall show rule name=all verbose");
