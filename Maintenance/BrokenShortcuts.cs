@@ -121,54 +121,57 @@ namespace Maintenance
         {
             foreach (string directory in Directory.GetDirectories(parentDirectory))
             {
-                try
+                if (directory != Environment.GetFolderPath(Environment.SpecialFolder.Startup) && directory != Environment.GetFolderPath(Environment.SpecialFolder.CommonStartup))
                 {
-                    if (directory != Environment.GetFolderPath(Environment.SpecialFolder.Startup) && directory != Environment.GetFolderPath(Environment.SpecialFolder.CommonStartup))
+                    try
                     {
-                        DeleteEmptySubdirectories(directory);
-                    }
-                }
-                catch { continue; }
-
-                try
-                {
-                    int totalDirectories = 0;
-                    foreach (string dir in Directory.GetDirectories(directory))
-                    {
-                        totalDirectories++;
-                    }
-                    if (totalDirectories == 0)
-                    {
-                        int totalFiles = 0;
-                        foreach (string file in Directory.GetFiles(directory))
+                        if (directory != Environment.GetFolderPath(Environment.SpecialFolder.Startup) && directory != Environment.GetFolderPath(Environment.SpecialFolder.CommonStartup))
                         {
-                            if (Path.GetFileName(file.ToLower()) != "desktop.ini" && Path.GetFileName(file.ToLower()) != "thumbs.db")
-                            {
-                                totalFiles++;
-                            }
+                            DeleteEmptySubdirectories(directory);
                         }
-                        if (totalFiles == 0)
+                    }
+                    catch { continue; }
+
+                    try
+                    {
+                        int totalDirectories = 0;
+                        foreach (string dir in Directory.GetDirectories(directory))
                         {
+                            totalDirectories++;
+                        }
+                        if (totalDirectories == 0)
+                        {
+                            int totalFiles = 0;
                             foreach (string file in Directory.GetFiles(directory))
                             {
-                                if (Path.GetFileName(file.ToLower()) == "desktop.ini" || Path.GetFileName(file.ToLower()) == "thumbs.db")
+                                if (Path.GetFileName(file.ToLower()) != "desktop.ini" && Path.GetFileName(file.ToLower()) != "thumbs.db")
                                 {
-                                    File.Delete(file);
+                                    totalFiles++;
                                 }
                             }
-                            EasyLogger.Info("Removing empty directory: " + directory);
-                            try
+                            if (totalFiles == 0)
                             {
-                                Directory.Delete(directory);
-                            }
-                            catch (Exception ex)
-                            {
-                                EasyLogger.Error(ex);
+                                foreach (string file in Directory.GetFiles(directory))
+                                {
+                                    if (Path.GetFileName(file.ToLower()) == "desktop.ini" || Path.GetFileName(file.ToLower()) == "thumbs.db")
+                                    {
+                                        File.Delete(file);
+                                    }
+                                }
+                                EasyLogger.Info("Removing empty directory: " + directory);
+                                try
+                                {
+                                    Directory.Delete(directory);
+                                }
+                                catch (Exception ex)
+                                {
+                                    EasyLogger.Error(ex);
+                                }
                             }
                         }
                     }
+                    catch { continue; }
                 }
-                catch { continue; }
             }
         }
     }
