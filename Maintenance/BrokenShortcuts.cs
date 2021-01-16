@@ -84,16 +84,13 @@ namespace Maintenance
                     {
                         ShellLinkObject lnk = (ShellLinkObject)folder_item.GetLink;
                         string path = lnk.Path;
-                        bool exists = false;
-                        if (File.Exists(path))
+;
+                        try
                         {
-                            exists = true;
+                            FileAttributes attr = File.GetAttributes(path);
+                            _ = attr.HasFlag(FileAttributes.Directory);
                         }
-                        if (Directory.Exists(path))
-                        {
-                            exists = true;
-                        }
-                        if (!exists)
+                        catch (Exception ex)
                         {
                             EasyLogger.Info("Deleting broken shortcut: " + shortcut + ". The target doesn't exits: " + path);
                             try
