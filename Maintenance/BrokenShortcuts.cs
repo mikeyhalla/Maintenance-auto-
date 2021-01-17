@@ -1,17 +1,19 @@
 ﻿using Shell32;
 using System;
 using System.IO;
-using System.Linq;
 
 namespace Maintenance
 {
     internal class BrokenShortcuts
     {
+        static string programs = Environment.GetFolderPath(Environment.SpecialFolder.Programs), commonPrograms = Environment.GetFolderPath(Environment.SpecialFolder.CommonPrograms);
+
         internal static void Remove()
         {
             try
             {
                 string[] directories = { Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), Environment.GetFolderPath(Environment.SpecialFolder.CommonDesktopDirectory), Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu), Environment.GetFolderPath(Environment.SpecialFolder.Programs), Environment.GetFolderPath(Environment.SpecialFolder.CommonPrograms) };
+
                 foreach (string directory in directories)
                 {
                     try
@@ -121,14 +123,11 @@ namespace Maintenance
         {
             foreach (string directory in Directory.GetDirectories(parentDirectory))
             {
-                if (directory != Environment.GetFolderPath(Environment.SpecialFolder.Startup) && directory != Environment.GetFolderPath(Environment.SpecialFolder.CommonStartup))
+                if (directory != Environment.GetFolderPath(Environment.SpecialFolder.Startup) && directory != Environment.GetFolderPath(Environment.SpecialFolder.CommonStartup) && directory != programs + "\\Administrative Tools" && directory != commonPrograms + "\\Administrative Tools" && directory != programs + "\\Windows Administrative Tools" && directory != commonPrograms + "\\Windows Administrative Tools" && directory != programs + "\\Windows System" && directory != commonPrograms + "\\Windows System" && directory != programs + "\\Windows Accessories" && directory != commonPrograms + "\\Windows Accessories" && directory != programs + "\\Windows Ease of Access" && directory != commonPrograms + "\\Windows Ease of Access" && directory != programs + "\\Games" && directory != commonPrograms + "\\Games")
                 {
                     try
                     {
-                        if (directory != Environment.GetFolderPath(Environment.SpecialFolder.Startup) && directory != Environment.GetFolderPath(Environment.SpecialFolder.CommonStartup))
-                        {
-                            DeleteEmptySubdirectories(directory);
-                        }
+                        DeleteEmptySubdirectories(directory);
                     }
                     catch { continue; }
 
