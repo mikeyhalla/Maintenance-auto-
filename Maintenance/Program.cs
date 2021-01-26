@@ -66,7 +66,7 @@ namespace Maintenance
                 settings.ShowDialog();
             }
 
-            EasyLogger.Info("*********************  END OF OPIMIZATIONS  *********************");
+            EasyLogger.Info("*********************  END OF OPTIMIZATIONS  *********************");
 
             Environment.Exit(0);
         }
