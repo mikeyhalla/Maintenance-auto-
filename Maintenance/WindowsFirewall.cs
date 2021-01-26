@@ -63,7 +63,7 @@ namespace Maintenance
 
                     if (Path.IsPathRooted(file) && !Path.GetDirectoryName(file).StartsWith(Environment.GetFolderPath(Environment.SpecialFolder.Windows)))
                     {
-                        if (!File.Exists(file))
+                        if (!FileExistance.FileExists(file))
                         {
                             try
                             {

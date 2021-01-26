@@ -71,41 +71,35 @@ namespace Maintenance
 
                 string shortcut_path = shortcut.Substring(0, shortcut.LastIndexOf("\\"));
                 string shortcut_name = shortcut.Substring(shortcut.LastIndexOf("\\") + 1);
+
                 if (shortcut_name.EndsWith(".lnk"))
                 {
                     Folder shortcut_folder = shell.NameSpace(shortcut_path);
 
                     FolderItem folder_item = shortcut_folder.Items().Item(shortcut_name);
 
-                    if (folder_item == null)
-                        EasyLogger.Warning("Cannot find shortcut file '" + shortcut + "'");
-                    if (!folder_item.IsLink)
-                        EasyLogger.Warning(shortcut + "' isn't a shortcut.");
-
                     try
                     {
                         ShellLinkObject lnk = (ShellLinkObject)folder_item.GetLink;
                         string path = lnk.Path;
-;
-                        try
+                        if (!string.IsNullOrEmpty(path))
                         {
-                            if (!string.IsNullOrEmpty(path))
-                            {
-                                FileAttributes attr = File.GetAttributes(path);
-                                _ = attr.HasFlag(FileAttributes.Directory);
-                            }
-                        }
-                        catch
-                        {
-                            EasyLogger.Info("Deleting broken shortcut: " + shortcut + ". The target doesn't exits: " + path);
                             try
                             {
-                                File.Delete(shortcut);
-                            }
-                            catch { /* ignore */ }
-                            try
-                            {
-                                Directory.Delete(shortcut);
+                                if (!FileExistance.FileExists(path))
+                                {
+                                    EasyLogger.Info("Deleting broken shortcut: " + shortcut + ". The target doesn't exits: " + path);
+                                    try
+                                    {
+                                        File.Delete(shortcut);
+                                    }
+                                    catch { /* ignore */ }
+                                    try
+                                    {
+                                        Directory.Delete(shortcut);
+                                    }
+                                    catch { /* ignore */ }
+                                }
                             }
                             catch { /* ignore */ }
                         }

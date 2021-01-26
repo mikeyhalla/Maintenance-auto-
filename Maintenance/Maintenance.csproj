@@ -71,6 +71,7 @@
     <Compile Include="DeleteFiles.cs" />
     <Compile Include="DeleteInDirectory.cs" />
     <Compile Include="DeleteInDirectoryOlder.cs" />
+    <Compile Include="FileExistance.cs" />
     <Compile Include="InputBox.cs" />
     <Compile Include="SetServices.cs" />
     <Compile Include="DisableTasks.cs" />
