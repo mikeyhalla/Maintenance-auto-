@@ -44,6 +44,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.ExclusionListBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.brokenShortcutsBox = new System.Windows.Forms.CheckBox();
             this.InvalidFirewallBox = new System.Windows.Forms.CheckBox();
             this.InvalidVariablesBox = new System.Windows.Forms.CheckBox();
             this.RebootBox = new System.Windows.Forms.CheckBox();
@@ -94,7 +95,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FilesHideBox = new System.Windows.Forms.ComboBox();
             this.FilesToDelBox = new System.Windows.Forms.ComboBox();
-            this.brokenShortcutsBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -224,7 +224,7 @@
             // 
             // ExclusionListTextBox
             // 
-            this.ExclusionListTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ExclusionListTextBox.BackColor = System.Drawing.Color.DimGray;
             this.ExclusionListTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ExclusionListTextBox.Location = new System.Drawing.Point(160, 59);
             this.ExclusionListTextBox.Name = "ExclusionListTextBox";
@@ -281,7 +281,7 @@
             // 
             // ExclusionListBox
             // 
-            this.ExclusionListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ExclusionListBox.BackColor = System.Drawing.Color.DimGray;
             this.ExclusionListBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExclusionListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ExclusionListBox.FormattingEnabled = true;
@@ -305,6 +305,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(596, 74);
             this.panel2.TabIndex = 54;
+            // 
+            // brokenShortcutsBox
+            // 
+            this.brokenShortcutsBox.AutoSize = true;
+            this.brokenShortcutsBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.brokenShortcutsBox.Location = new System.Drawing.Point(321, 40);
+            this.brokenShortcutsBox.Name = "brokenShortcutsBox";
+            this.brokenShortcutsBox.Size = new System.Drawing.Size(139, 17);
+            this.brokenShortcutsBox.TabIndex = 27;
+            this.brokenShortcutsBox.Text = "Delete broken shortcuts";
+            this.brokenShortcutsBox.UseVisualStyleBackColor = true;
             // 
             // InvalidFirewallBox
             // 
@@ -399,7 +410,7 @@
             // 
             // TasksTextBox
             // 
-            this.TasksTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.TasksTextBox.BackColor = System.Drawing.Color.DimGray;
             this.TasksTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TasksTextBox.Location = new System.Drawing.Point(160, 61);
             this.TasksTextBox.Name = "TasksTextBox";
@@ -456,7 +467,7 @@
             // 
             // TasksDisableBox
             // 
-            this.TasksDisableBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.TasksDisableBox.BackColor = System.Drawing.Color.DimGray;
             this.TasksDisableBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TasksDisableBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TasksDisableBox.FormattingEnabled = true;
@@ -488,7 +499,7 @@
             // 
             // ServicesTextBox
             // 
-            this.ServicesTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ServicesTextBox.BackColor = System.Drawing.Color.DimGray;
             this.ServicesTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesTextBox.Location = new System.Drawing.Point(160, 88);
             this.ServicesTextBox.Name = "ServicesTextBox";
@@ -583,7 +594,7 @@
             // 
             // ServicesManualBox
             // 
-            this.ServicesManualBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ServicesManualBox.BackColor = System.Drawing.Color.DimGray;
             this.ServicesManualBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ServicesManualBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesManualBox.FormattingEnabled = true;
@@ -594,7 +605,7 @@
             // 
             // ServicesDisableBox
             // 
-            this.ServicesDisableBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ServicesDisableBox.BackColor = System.Drawing.Color.DimGray;
             this.ServicesDisableBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ServicesDisableBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ServicesDisableBox.FormattingEnabled = true;
@@ -698,7 +709,7 @@
             // 
             // PathHideListBox
             // 
-            this.PathHideListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathHideListBox.BackColor = System.Drawing.Color.DimGray;
             this.PathHideListBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PathHideListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathHideListBox.FormattingEnabled = true;
@@ -719,7 +730,7 @@
             // 
             // DirToDelBox
             // 
-            this.DirToDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.DirToDelBox.BackColor = System.Drawing.Color.DimGray;
             this.DirToDelBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DirToDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DirToDelBox.FormattingEnabled = true;
@@ -806,7 +817,7 @@
             // 
             // PathFilesDelOldBox
             // 
-            this.PathFilesDelOldBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathFilesDelOldBox.BackColor = System.Drawing.Color.DimGray;
             this.PathFilesDelOldBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PathFilesDelOldBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelOldBox.FormattingEnabled = true;
@@ -817,7 +828,7 @@
             // 
             // PathFilesDelBox
             // 
-            this.PathFilesDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.PathFilesDelBox.BackColor = System.Drawing.Color.DimGray;
             this.PathFilesDelBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PathFilesDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PathFilesDelBox.FormattingEnabled = true;
@@ -923,7 +934,7 @@
             // 
             // FilesHideBox
             // 
-            this.FilesHideBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.FilesHideBox.BackColor = System.Drawing.Color.DimGray;
             this.FilesHideBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FilesHideBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesHideBox.FormattingEnabled = true;
@@ -934,7 +945,7 @@
             // 
             // FilesToDelBox
             // 
-            this.FilesToDelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.FilesToDelBox.BackColor = System.Drawing.Color.DimGray;
             this.FilesToDelBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FilesToDelBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FilesToDelBox.FormattingEnabled = true;
@@ -942,17 +953,6 @@
             this.FilesToDelBox.Name = "FilesToDelBox";
             this.FilesToDelBox.Size = new System.Drawing.Size(246, 21);
             this.FilesToDelBox.TabIndex = 39;
-            // 
-            // brokenShortcutsBox
-            // 
-            this.brokenShortcutsBox.AutoSize = true;
-            this.brokenShortcutsBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.brokenShortcutsBox.Location = new System.Drawing.Point(321, 40);
-            this.brokenShortcutsBox.Name = "brokenShortcutsBox";
-            this.brokenShortcutsBox.Size = new System.Drawing.Size(139, 17);
-            this.brokenShortcutsBox.TabIndex = 27;
-            this.brokenShortcutsBox.Text = "Delete broken shortcuts";
-            this.brokenShortcutsBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 

@@ -15,7 +15,7 @@ namespace Maintenance
         {
             if (Default.LoggingEnabled)
             {
-                EasyLogger.BackupLogs(EasyLogger.LogFile, 7);
+                EasyLogger.BackupLogs(EasyLogger.LogFile, 30);
                 EasyLogger.AddListener(EasyLogger.LogFile);
             }
 
